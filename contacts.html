@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Контакты — SmartStock</title>
+<meta name="description" content="Связь с разработчиком SmartStock: Telegram, WhatsApp, почта. Демонстрация программы до покупки, ответ в течение дня.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
+     площадки (VK/FB) требуют АБСОЛЮТНЫЙ url в og:image — замените на
+     https://ВАШ-ДОМЕН/assets/img/screenshots/banner.png -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Контакты — SmartStock">
+<meta property="og:description" content="Связь с разработчиком SmartStock: Telegram, WhatsApp, почта. Демонстрация программы до покупки, ответ в течение дня.">
+<meta property="og:image" content="assets/img/screenshots/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/img/screenshots/banner.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Связаться со мной</h1>
+    <p class="lead">Я — разработчик SmartStock и сам отвечаю на все вопросы:
+    без менеджеров и скриптов. Обычно — в течение пары часов, максимум в
+    течение дня.</p>
+    <div class="cta">
+      <a class="btn" href="https://t.me/C_plus_plus_is_good">✈️ Написать в Telegram</a>
+      <a class="btn light" href="https://wa.me/79285879774">💬 Написать в WhatsApp</a>
+    </div>
+    <p class="small" style="color:#b7b5a9;margin-top:.7rem">
+      Telegram и WhatsApp — основной канал: там отвечаю быстрее всего.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid c2">
+
+      <div class="card">
+        <h3>Прямые контакты</h3>
+        <ul class="contact-list" style="margin-top:1rem">
+          <li><span class="ico">✈️</span>
+            <span><b>Telegram:</b> <a href="https://t.me/C_plus_plus_is_good">@C_plus_plus_is_good</a>
+            (Ambassador of C++)<br>
+            <span class="muted small">самый быстрый способ</span></span></li>
+          <li><span class="ico">💬</span>
+            <span><b>WhatsApp:</b> <a href="https://wa.me/79285879774">+7 928 587-97-74</a></span></li>
+          <li><span class="ico">📧</span>
+            <span><b>Почта:</b> <a href="mailto:kuntuganov_ratmir@mail.ru">kuntuganov_ratmir@mail.ru</a></span></li>
+          <li><span class="ico">📞</span>
+            <span><b>Телефон:</b> <a href="tel:+79285879774">+7 928 587-97-74</a><br>
+            <span class="muted small">звонки — по будням 10:00–19:00 (МСК)</span></span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Запасной вариант — письмо на почту</h3>
+        <p class="muted small">Если мессенджеры не подходят: форма откроет ваш
+        почтовый клиент с готовым письмом. Отвечаю медленнее, чем в Telegram.</p>
+        <!-- Без бэкенда: форма собирает mailto-ссылку. -->
+        <form id="mailForm" style="display:grid; gap:.8rem; margin-top:1rem">
+          <input  name="name"  placeholder="Как к вам обращаться" required
+                  style="padding:.7rem 1rem; border:1px solid var(--line); border-radius:10px; font:inherit">
+          <input  name="contact" placeholder="Ваш телефон или Telegram" required
+                  style="padding:.7rem 1rem; border:1px solid var(--line); border-radius:10px; font:inherit">
+          <textarea name="msg" rows="5" placeholder="Что у вас за бизнес и какая задача?" required
+                  style="padding:.7rem 1rem; border:1px solid var(--line); border-radius:10px; font:inherit; resize:vertical"></textarea>
+          <button class="btn" type="submit">Отправить письмо</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="grid c3" style="margin-top:1.6rem">
+      <div class="card"><div class="icon">🖥️</div><h3>Демонстрация</h3><p>Покажу программу в видеозвонке до оплаты — можно на ваших товарах.</p></div>
+      <div class="card"><div class="icon">🛠️</div><h3>Доработки</h3><p>Опишите задачу своими словами — переведу в ТЗ и оценю бесплатно.</p></div>
+      <div class="card"><div class="icon">🤝</div><h3>Партнёрам</h3><p>Внедренцам и студиям — условия на установку SmartStock своим клиентам.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов (Ambassador of C++).<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="price.html">Прайс-лист</a>
+      <a href="license.html">Лицензионное соглашение</a>
+      <a href="buy.html">Оплата по СБП</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+// Форма «написать письмо»: собираем mailto без бэкенда.
+document.getElementById("mailForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var to = "kuntuganov_ratmir@mail.ru";
+  var subject = encodeURIComponent("SmartStock — вопрос от " + f.name.value);
+  var body = encodeURIComponent(
+    "Имя: " + f.name.value + "\n" +
+    "Контакт: " + f.contact.value + "\n\n" +
+    f.msg.value);
+  location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+});
+</script>
+</body>
+</html>

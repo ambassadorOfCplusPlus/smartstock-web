@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Прайс-лист — SmartStock</title>
+<meta name="description" content="Цены SmartStock: Desktop — 10 000 ₽ разово «всё включено» (установка, импорт товаров, обучение), серверная версия для сети точек — 90 000 ₽. Без подписок.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
+     площадки (VK/FB) требуют АБСОЛЮТНЫЙ url в og:image — замените на
+     https://ВАШ-ДОМЕН/assets/img/screenshots/banner.png -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Прайс-лист — SmartStock">
+<meta property="og:description" content="Цены SmartStock: Desktop — 10 000 ₽ разово «всё включено» (установка, импорт товаров, обучение), серверная версия для сети точек — 90 000 ₽. Без подписок.">
+<meta property="og:image" content="assets/img/screenshots/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/img/screenshots/banner.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Прайс-лист</h1>
+    <p class="lead">Никаких подписок и платежей «за пользователя в месяц».
+    Лицензия покупается один раз и работает всегда.</p>
+  </div>
+</section>
+
+<!-- ── Тарифы Desktop ────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>SmartStock Desktop</h2>
+    <div class="grid c3" style="margin-top:2rem">
+
+      <div class="card price-card">
+        <h3>Знакомство</h3>
+        <div class="price">0 ₽</div>
+        <div class="per">до покупки</div>
+        <ul>
+          <li><b>Бета-версия для самостоятельной пробы</b>: полный функционал,
+              до 10 товаров, 2 дня — без регистрации</li>
+          <li>Или видеодемонстрация — 15–20 минут, можно на ваших товарах</li>
+          <li>Честный ответ, подойдёт ли вам (или лучше 1С/облако)</li>
+          <li>Данные из беты сохранятся в полной версии</li>
+        </ul>
+        <a class="btn ghost" href="files/SmartStock-2.2.0-Beta-Setup.exe" download>🎁 Скачать бету</a>
+      </div>
+
+      <div class="card price-card featured">
+        <span class="tag">Основной вариант</span>
+        <h3>SmartStock Desktop — всё включено</h3>
+        <div class="price">10 000 ₽</div>
+        <div class="per">разово, навсегда — никаких подписок</div>
+        <ul>
+          <li>Программа целиком: все разделы, без урезаний</li>
+          <li>Установщик + портативная версия + руководство</li>
+          <li>Установка и настройка удалённо</li>
+          <li>Реквизиты организации, склад и ячейки</li>
+          <li><b>Импорт ваших товаров и остатков</b> из Excel или 1С</li>
+          <li>Обучение — 1 час в видеозвонке</li>
+          <li>Поддержка — 60 дней; исправление ошибок — бессрочно</li>
+        </ul>
+        <a class="btn" href="buy.html">Купить</a>
+      </div>
+
+      <div class="card price-card">
+        <h3>Доработка под вас</h3>
+        <div class="price">от 5 000 ₽</div>
+        <div class="per">по техзаданию</div>
+        <ul>
+          <li>Свои печатные формы и отчёты</li>
+          <li>Дополнительные поля и справочники</li>
+          <li>Интеграции (по обсуждению)</li>
+          <li>Нишевые шаблоны: одежда, продукты, запчасти…</li>
+          <li>Ориентир: 2 000 ₽/час или фикс за фичу</li>
+        </ul>
+        <a class="btn ghost" href="contacts.html">Обсудить задачу</a>
+      </div>
+
+    </div>
+
+    <p class="muted small" style="margin-top:1.2rem">
+      Дополнительное рабочее место (второй компьютер того же владельца) —
+      <b>+3 000 ₽</b>. Годовая поддержка с приоритетными ответами и
+      обновлениями — <b>4 900 ₽/год</b> (по желанию, программа работает и без неё).
+    </p>
+  </div>
+</section>
+
+<!-- ── Server ────────────────────────────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container">
+    <h2>SmartStock Server (сеть точек)</h2>
+    <div class="table-wrap" style="margin-top:1.5rem">
+      <table class="nice">
+        <tr><th>Состав</th><th>Цена</th></tr>
+        <tr>
+          <td><b>Внедрение «Старт»</b>: сервер (ваш VPS или офисный ПК),
+              до 3 точек, роли, обучение администратора</td>
+          <td class="price">90 000 ₽</td>
+        </tr>
+        <tr>
+          <td><b>Дополнительная точка</b> (лицензия + подключение + настройка)</td>
+          <td class="price">от 7 000 ₽</td>
+        </tr>
+        <tr>
+          <td><b>Сопровождение сервера</b> (обновления, резервные копии, консультации)</td>
+          <td class="price">от 5 000 ₽/мес</td>
+        </tr>
+        <tr>
+          <td><b>Индивидуальные доработки</b> (отчёты по сети, интеграции, бот)</td>
+          <td class="price">по ТЗ</td>
+        </tr>
+      </table>
+    </div>
+    <p class="muted small" style="margin-top:1rem">
+      Точная смета — после короткого созвона: зависит от числа точек, наличия
+      VPS и состояния текущего учёта. <a href="contacts.html">Напишите</a> —
+      отвечу в течение дня.
+    </p>
+  </div>
+</section>
+
+<!-- ── Что входит всегда ─────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>Это входит в любую покупку</h2>
+    <div class="grid c4">
+      <div class="card"><div class="icon">♾️</div><h3>Бессрочно</h3><p>Лицензия не сгорает. Никаких «продлений», чтобы программа продолжила работать.</p></div>
+      <div class="card"><div class="icon">🔐</div><h3>Ваши данные — у вас</h3><p>Никакого облака. База на вашем диске, зашифрована, с автокопиями.</p></div>
+      <div class="card"><div class="icon">🆓</div><h3>Демонстрация до оплаты</h3><p>Покажу программу в видеозвонке, можно на ваших товарах.</p></div>
+      <div class="card"><div class="icon">📄</div><h3>Прозрачные условия</h3><p>Простое <a href="license.html">лицензионное соглашение</a> на одну страницу — без мелкого шрифта.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container center">
+    <h2>Готовы начать?</h2>
+    <p class="muted">Оплата по СБП — без комиссии, дистрибутив и лицензия в день оплаты.</p>
+    <p style="margin-top:1.4rem">
+      <a class="btn" href="buy.html">Как купить</a>
+      <a class="btn light" href="contacts.html" style="margin-left:.6rem">Задать вопрос</a>
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов (Ambassador of C++).<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="price.html">Прайс-лист</a>
+      <a href="license.html">Лицензионное соглашение</a>
+      <a href="buy.html">Оплата по СБП</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

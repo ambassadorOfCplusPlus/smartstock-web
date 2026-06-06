@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartStock Desktop — возможности программы складского учёта</title>
+<meta name="description" content="Все возможности SmartStock Desktop: касса 54-ФЗ, партионный учёт, документы РФ, склад с ячейками, маркировка, отчёты, локальный ИИ. Системные требования.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
+     площадки (VK/FB) требуют АБСОЛЮТНЫЙ url в og:image — замените на
+     https://ВАШ-ДОМЕН/assets/img/screenshots/banner.png -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="SmartStock Desktop — возможности программы складского учёта">
+<meta property="og:description" content="Все возможности SmartStock Desktop: касса 54-ФЗ, партионный учёт, документы РФ, склад с ячейками, маркировка, отчёты, локальный ИИ. Системные требования.">
+<meta property="og:image" content="assets/img/screenshots/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/img/screenshots/banner.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>SmartStock Desktop</h1>
+    <p class="lead">Полноценная складская программа на вашем компьютере.
+    Один склад, один пользователь, ноль зависимости от интернета и подписок.</p>
+    <div class="cta">
+      <a class="btn" href="price.html">Купить за 10 000 ₽ — всё включено</a>
+      <a class="btn light" href="files/SmartStock-2.2.0-Beta-Setup.exe" download>🎁 Попробовать бесплатно</a>
+    </div>
+    <p class="small" style="color:#b7b5a9;margin-top:.7rem">
+      Бета: полный функционал, до 10 товаров, 2 дня — данные сохранятся
+      при переходе на полную версию.
+    </p>
+    <div class="badges">
+      <span class="badge">Windows 10/11</span>
+      <span class="badge">Установщик + портативная версия</span>
+      <span class="badge">~60 МБ, ставится за минуту</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Подробные возможности ─────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>Возможности по разделам</h2>
+    <div class="grid c2">
+
+      <div class="card">
+        <h3>📦 Инвентарь</h3>
+        <p>Каталог товаров: цена, <b>закупочная цена и маржа</b>, габариты и вес,
+        срок годности, штрих-код, категории, единицы измерения. Быстрые фильтры
+        «Заканчивается» и «Истекает срок», умный поиск с опечатками,
+        импорт из Excel/CSV/PDF и экспорт в Excel.</p>
+      </div>
+
+      <div class="card">
+        <h3>🧾 Касса и продажи (54-ФЗ)</h3>
+        <p>Корзина, скидки вручную и <b>акции по правилам</b> (на товар, категорию,
+        чек), бонусная программа для покупателей, USB-сканер штрих-кодов.
+        Фискальные чеки через драйвер «АТОЛ» — при недоступной кассе чек не
+        теряется, а уходит в очередь допробития.</p>
+      </div>
+
+      <div class="card">
+        <h3>🧮 Партионный учёт</h3>
+        <p>Каждая поставка хранит свою себестоимость. Списание
+        <b>FIFO / LIFO / по средней</b>, точное сторно при возврате, приёмка
+        в валюте (USD/EUR/CNY с курсом), возврат поставщику.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏗️ Склад</h3>
+        <p>Стеллажи и ячейки с <b>цветовой индикацией заполненности</b>, умное
+        размещение по объёму и весу, товар в нескольких ячейках, выбор ячейки
+        отгрузки при продаже, авто-размещение при приёмке.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏷️ Маркировка, серийники, наборы</h3>
+        <p>Локальный учёт кодов «Честный знак» (DataMatrix), серийные номера и
+        гарантийные сроки, комплекты/наборы с автосписанием компонентов,
+        печать этикеток и ценников (Code39).</p>
+      </div>
+
+      <div class="card">
+        <h3>📑 Документы РФ</h3>
+        <p>Счёт, счёт-фактура (НДС 20%), ТОРГ-12, акт — с реквизитами вашей
+        организации, суммой прописью, сквозной нумерацией. Предпросмотр,
+        печать, экспорт в PDF.</p>
+      </div>
+
+      <div class="card">
+        <h3>📋 Заказы и резервы</h3>
+        <p>Заказы со статусами и позициями, <b>резервирование товара под заказ</b>
+        (касса не продаст зарезервированное), документы из заказа в один клик.</p>
+      </div>
+
+      <div class="card">
+        <h3>🧮 Инвентаризация (ИНВ-3)</h3>
+        <p>Пересчёт по факту со сканером, авторасчёт излишков и недостач,
+        корректировка остатков и печать акта. Излишки автоматически
+        размещаются по ячейкам.</p>
+      </div>
+
+      <div class="card">
+        <h3>📊 Отчёты и аналитика</h3>
+        <p>Остатки, продажи, налоги, сроки годности, движение товара,
+        <b>ABC-анализ</b> и оборачиваемость, КУДиР. Графики, экспорт в
+        Excel (настоящий .xlsx) / PDF / CSV.</p>
+      </div>
+
+      <div class="card">
+        <h3>💰 Бюджет и закупки</h3>
+        <p>Доходы и расходы, план/факт, рекомендации по дозаказу на основе
+        прогноза спроса.</p>
+      </div>
+
+      <div class="card">
+        <h3>🤖 ИИ-ассистент</h3>
+        <p>Чат внутри программы: «где лежит молоко?», «что заканчивается?»,
+        «прогноз спроса», «что дозаказать». Складские команды работают сразу;
+        свободный диалог — после скачивания локальной модели (~2,5 ГБ) одной
+        кнопкой. <b>Без API-ключей и без передачи данных в облако.</b></p>
+      </div>
+
+      <div class="card">
+        <h3>💾 Надёжность и данные</h3>
+        <p>База данных <b>зашифрована целиком</b> (SQLCipher, AES-256),
+        автоматические резервные копии (хранятся 30 последних), журнал действий,
+        тёмная и светлая темы. Переустановка программы не трогает ваши данные.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Быстрый старт ─────────────────────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container">
+    <h2>Старт за 10 минут — мастер первого запуска</h2>
+    <div class="steps" style="max-width:680px">
+      <div class="step"><div><b>Реквизиты организации</b> — название, ИНН, адрес: сразу попадут в печатные документы.</div></div>
+      <div class="step"><div><b>Склад</b> — название и, по желанию, автоматическая генерация ячеек хранения.</div></div>
+      <div class="step"><div><b>Ваши товары и остатки</b> — импорт из таблицы Excel/CSV (программа сама поймёт колонки и кодировку) или из выгрузки 1С (CommerceML) с предпросмотром.</div></div>
+      <div class="step"><div><b>Готово</b> — можно продавать. Мастер всегда доступен повторно из меню «Инструменты».</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Скриншоты ─────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>Скриншоты</h2>
+    <div class="grid c3">
+      <figure><img class="shot-img" src="assets/img/screenshots/inventory.png" alt="Инвентарь"><figcaption>Инвентарь — маржа, сроки, фильтры, импорт/экспорт</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/product-card.png" alt="Карточка товара"><figcaption>Карточка товара — штрих-код, маркировка, мин. остаток</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/wizard.png" alt="Мастер первого запуска"><figcaption>Мастер первого запуска — реквизиты и импорт из Excel/1С</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/orders.png" alt="Заказы"><figcaption>Заказы — статусы, документы в один клик</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/reports.png" alt="Отчёты"><figcaption>Отчёты — продажи, налоги, ABC; экспорт PDF/XLSX</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/fiscal.png" alt="Касса 54-ФЗ"><figcaption>Касса 54-ФЗ — настройка АТОЛ и очередь чеков</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/cell-info.png" alt="Ячейка склада"><figcaption>Ячейка — загрузка по объёму/весу, штрих-код</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/budget.png" alt="Бюджет"><figcaption>Бюджет — доходы/расходы, план-факт</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/palette.png" alt="Палитра подсветок"><figcaption>Настройки — палитра подсветок под себя</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ── Системные требования и рамки ──────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container">
+    <div class="grid c2">
+      <div class="card">
+        <h3>Системные требования</h3>
+        <ul class="muted" style="padding-left:1.2rem">
+          <li>Windows 10 или 11 (64-бит)</li>
+          <li>4 ГБ ОЗУ (для ИИ-модели желательно 8 ГБ+)</li>
+          <li>~200 МБ на диске (+2,5 ГБ для ИИ-модели, по желанию)</li>
+          <li>Принтер — любой, видимый Windows; сканер штрих-кодов — USB «в разрыв клавиатуры»</li>
+          <li>Касса 54-ФЗ: ККТ АТОЛ + «Драйвер ККТ v10» (по желанию)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Честно о рамках</h3>
+        <ul class="muted" style="padding-left:1.2rem">
+          <li>Один компьютер, один склад (для сети точек — <a href="server.html">серверная версия</a>)</li>
+          <li>Маркировка — локальный учёт кодов (обмен с ГИС МТ не входит)</li>
+          <li>ЕГАИС (алкоголь) не поддерживается</li>
+          <li>При первом запуске установщика Windows SmartScreen покажет предупреждение «неизвестный издатель» — это нормально для ПО без платного сертификата, в инструкции описано</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container center">
+    <h2>Попробуйте на своих данных</h2>
+    <p class="muted">Пришлите свой прайс — покажу программу с вашими товарами
+    в видеозвонке, до оплаты.</p>
+    <p style="margin-top:1.4rem">
+      <a class="btn" href="price.html">Цены</a>
+      <a class="btn light" href="contacts.html" style="margin-left:.6rem">Связаться</a>
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов (Ambassador of C++).<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="price.html">Прайс-лист</a>
+      <a href="license.html">Лицензионное соглашение</a>
+      <a href="buy.html">Оплата по СБП</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

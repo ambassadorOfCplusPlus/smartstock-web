@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="13" fill="#d97757"/>
+  <!-- стилизованная коробка -->
+  <g stroke="#fff" stroke-width="3.2" fill="none" stroke-linejoin="round">
+    <path d="M14 24 L32 15 L50 24 L50 44 L32 53 L14 44 Z"/>
+    <path d="M14 24 L32 33 L50 24"/>
+    <path d="M32 33 L32 53"/>
+  </g>
+</svg>

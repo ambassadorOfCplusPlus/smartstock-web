@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Частые вопросы — SmartStock</title>
+<meta name="description" content="Ответы на частые вопросы о SmartStock: SmartScreen, перенос данных, отличия от 1С и облаков, обновления, требования.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
+     площадки (VK/FB) требуют АБСОЛЮТНЫЙ url в og:image — замените на
+     https://ВАШ-ДОМЕН/assets/img/screenshots/banner.png -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Частые вопросы — SmartStock">
+<meta property="og:description" content="Ответы на частые вопросы о SmartStock: SmartScreen, перенос данных, отличия от 1С и облаков, обновления, требования.">
+<meta property="og:image" content="assets/img/screenshots/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/img/screenshots/banner.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Частые вопросы</h1>
+    <p class="lead">Честные ответы — в том числе на неудобные вопросы.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:820px">
+
+    <h2>Покупка и доверие</h2>
+
+    <details class="faq">
+      <summary>Windows пишет «неизвестный издатель» при установке — это вирус?</summary>
+      <p>Нет. Это стандартное предупреждение SmartScreen для любых программ без
+      платного сертификата подписи кода (он стоит десятки тысяч рублей в год и
+      на цену лицензии лёг бы на вас). Нажмите «Подробнее → Выполнить в любом
+      случае». Установщик можно проверить любым антивирусом до запуска —
+      присылаю и контрольные суммы файла.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Почему я должен доверять частному разработчику, а не компании?</summary>
+      <p>Решают не слова, а проверяемые вещи: демонстрация в видеозвонке до
+      оплаты (можно на ваших товарах), все данные хранятся только у вас,
+      программа работает без меня и без интернета — даже если я завтра исчезну,
+      ваш учёт продолжит работать. Плюс возврат денег до передачи дистрибутива.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Можно посмотреть программу до покупки?</summary>
+      <p>Да — видеодемонстрация в удобном мессенджере, 15–20 минут. Пришлите
+      свой прайс заранее — покажу программу с вашими товарами.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Дадите документы об оплате?</summary>
+      <p>Да, чек самозанятого (НПД) на сумму покупки — подходит для отчётности
+      ИП и ООО как расходы на ПО.</p>
+    </details>
+
+    <h2>Программа и данные</h2>
+
+    <details class="faq">
+      <summary>Чем это лучше бесплатного тарифа МойСклад или 1С?</summary>
+      <p>Ничем не «лучше вообще» — лучше для конкретных условий: разовая оплата
+      вместо подписки навсегда, работа без интернета, данные на вашем диске
+      (а не в чужом облаке), и нет ограничений бесплатных тарифов. Если вам
+      нужны маркетплейсы, ЕГАИС или бухгалтерия в одном окне — честно скажу:
+      берите 1С или облако.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Что будет с данными при переустановке или обновлении?</summary>
+      <p>Ничего: база, резервные копии и настройки живут отдельно от программы
+      (в профиле пользователя). Переустановка/обновление их не трогает. Плюс
+      программа сама делает резервные копии (хранит 30 последних) — база при
+      этом зашифрована.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Перенесёте мои товары из Excel или 1С?</summary>
+      <p>Программа делает это сама: мастер первого запуска импортирует таблицу
+      Excel/CSV (сам распознаёт колонки «Наименование», «Кол-во», «Цена»…) или
+      выгрузку 1С (CommerceML) с предпросмотром. В варианте «под ключ» я
+      сделаю импорт за вас.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Нужен ли интернет?</summary>
+      <p>Для работы — нет, всё локально. Интернет нужен только если захотите:
+      скачать ИИ-модель (один раз, ~2,5 ГБ), пользоваться веб-поиском в чате,
+      или для серверной версии — на время синхронизации точек.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Касса по 54-ФЗ правда работает?</summary>
+      <p>Да, через официальный драйвер «АТОЛ ККТ v10»: продажи и возвраты
+      пробиваются на вашей кассе АТОЛ, при недоступной кассе чеки копятся в
+      очереди и допробиваются кнопкой. Нужна зарегистрированная ККТ и договор с
+      ОФД (это требования закона, а не программы). По умолчанию касса выключена —
+      без неё программа полностью работает для внутреннего учёта.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Маркировка «Честный знак» поддерживается?</summary>
+      <p>Локальный учёт кодов: приёмка DataMatrix, привязка к товару, гашение
+      при продаже, возврат кодов при возврате товара. Передача сведений в
+      ГИС МТ (государственную систему) не входит — для этого нужны УКЭП и
+      отдельная интеграция, обсуждается как доработка.</p>
+    </details>
+
+    <details class="faq">
+      <summary>ИИ-ассистент — это отправка моих данных в ChatGPT?</summary>
+      <p>Нет. Нейросеть работает <b>полностью на вашем компьютере</b>
+      (локальная модель). Ваши товары и продажи никуда не отправляются.
+      Без модели ассистент тоже полезен: складские команды, прогнозы и
+      ABC-анализ работают сразу.</p>
+    </details>
+
+    <h2>Поддержка и развитие</h2>
+
+    <details class="faq">
+      <summary>Что входит в поддержку?</summary>
+      <p>Помощь с установкой и ответы на вопросы в переписке (срок зависит от
+      варианта в <a href="price.html">прайсе</a>), исправление воспроизводимых
+      ошибок — бессрочно и бесплатно. Индивидуальные доработки — отдельно по ТЗ.</p>
+    </details>
+
+    <details class="faq">
+      <summary>А если мне нужна своя печатная форма / поле / отчёт?</summary>
+      <p>Это самое частое пожелание — делаю доработки под бизнес: от 5 000 ₽ за
+      фичу или 2 000 ₽/час. Опишите задачу — оценю до начала работ, цена
+      фиксируется.</p>
+    </details>
+
+    <details class="faq">
+      <summary>У меня несколько магазинов — что делать?</summary>
+      <p>Смотрите <a href="server.html">SmartStock Server</a>: точки работают
+      офлайн на обычных десктопах и синхронизируются через ваш сервер — роли
+      сотрудников, общий журнал, разрешение конфликтов остатков.</p>
+    </details>
+
+    <details class="faq">
+      <summary>Mac или Linux?</summary>
+      <p>Сейчас — только Windows 10/11. Технически программа переносима (Qt),
+      сборка под другую ОС возможна как индивидуальный заказ.</p>
+    </details>
+
+    <p class="center" style="margin-top:2rem">
+      Не нашли ответ? <a class="btn" href="contacts.html">Спросите напрямую</a>
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов (Ambassador of C++).<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="price.html">Прайс-лист</a>
+      <a href="license.html">Лицензионное соглашение</a>
+      <a href="buy.html">Оплата по СБП</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

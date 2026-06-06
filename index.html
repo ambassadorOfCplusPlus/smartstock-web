@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartStock — складской учёт и мини-ERP для малого бизнеса</title>
+<meta name="description" content="SmartStock — программа складского учёта для магазина, склада и точки на рынке. Разовая оплата, работает без интернета, данные у вас. Касса 54-ФЗ, партионный учёт, документы РФ.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
+     площадки (VK/FB) требуют АБСОЛЮТНЫЙ url в og:image — замените на
+     https://ВАШ-ДОМЕН/assets/img/screenshots/banner.png -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="SmartStock — складской учёт и мини-ERP для малого бизнеса">
+<meta property="og:description" content="SmartStock — программа складского учёта для магазина, склада и точки на рынке. Разовая оплата, работает без интернета, данные у вас. Касса 54-ФЗ, партионный учёт, документы РФ.">
+<meta property="og:image" content="assets/img/screenshots/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/img/screenshots/banner.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <h1>Порядок в товаре —<br>без облака и абонентской платы</h1>
+    <p class="lead">SmartStock — настольная программа складского учёта и мини-ERP
+    для магазина, склада, мастерской и точки на рынке. Купили один раз —
+    пользуетесь всегда. Все данные хранятся у вас, интернет не нужен.</p>
+    <div class="cta">
+      <a class="btn" href="files/SmartStock-2.2.0-Beta-Setup.exe" download>🎁 Попробовать бесплатно</a>
+      <a class="btn light" href="price.html">Цены и комплектации</a>
+      <a class="btn ghost" href="desktop.html" style="color:#f5f4ef;border-color:#6b6b66">Что умеет программа</a>
+    </div>
+    <p class="small" style="color:#b7b5a9;margin-top:.7rem">
+      Бета-версия: полный функционал, до 10 товаров, 2 дня работы — без
+      регистрации и карты. Данные сохранятся при переходе на полную версию.
+    </p>
+    <div class="badges">
+      <span class="badge">⚡ Нативная программа (C++/Qt), не браузер</span>
+      <span class="badge">🔒 Данные на вашем ПК, БД зашифрована</span>
+      <span class="badge">🧾 Касса 54-ФЗ (АТОЛ)</span>
+      <span class="badge">✅ 183 автотеста</span>
+      <span class="badge">🤖 Локальный ИИ-ассистент</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Для кого ──────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Для кого</h2>
+      <p class="muted">SmartStock заменяет «тетрадку и Excel» и закрывает то, ради
+      чего обычно покупают 1С — но проще, без внедренца и без ежемесячных платежей.</p>
+    </div>
+    <div class="grid c4">
+      <div class="card"><div class="icon">🏪</div><h3>Розничный магазин</h3><p>Касса с чеками, штрих-коды, ценники, остатки и сроки годности.</p></div>
+      <div class="card"><div class="icon">📦</div><h3>Склад и опт</h3><p>Стеллажи и ячейки, партионный учёт, приёмка, резервы под заказ.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>Мастерская, сервис</h3><p>Запчасти и материалы под контролем, серийные номера и гарантия.</p></div>
+      <div class="card"><div class="icon">🏠</div><h3>Домашнее производство</h3><p>Себестоимость, закупки, документы для покупателей — без бухгалтера.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Возможности ───────────────────────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container">
+    <div class="section-head">
+      <h2>Что внутри</h2>
+      <p class="muted">Коротко — полный список и скриншоты на странице
+      <a href="desktop.html">десктоп-версии</a>.</p>
+    </div>
+    <div class="grid c3">
+      <div class="card"><div class="icon">🧾</div><h3>Касса и чеки 54-ФЗ</h3><p>Продажа с корзиной, скидки и акции, USB-сканер, фискальные чеки через драйвер АТОЛ.</p></div>
+      <div class="card"><div class="icon">📑</div><h3>Документы РФ</h3><p>Счёт, счёт-фактура, ТОРГ-12, акт — с реквизитами, суммой прописью, печатью и PDF.</p></div>
+      <div class="card"><div class="icon">🧮</div><h3>Партионный учёт</h3><p>Каждая поставка со своей себестоимостью: FIFO / LIFO / средняя, точные возвраты.</p></div>
+      <div class="card"><div class="icon">🏗️</div><h3>Наглядный склад</h3><p>Стеллажи и ячейки с цветовой заполненностью, умное размещение по объёму и весу.</p></div>
+      <div class="card"><div class="icon">🏷️</div><h3>Маркировка и серийники</h3><p>Коды «Честный знак» (локальный учёт), серийные номера и гарантия, наборы товаров.</p></div>
+      <div class="card"><div class="icon">📊</div><h3>Отчёты и аналитика</h3><p>Остатки, продажи, ABC-анализ, КУДиР, бюджет и планирование закупок. Экспорт в Excel.</p></div>
+      <div class="card"><div class="icon">📥</div><h3>Быстрый старт</h3><p>Мастер первого запуска: реквизиты → склад → импорт ваших товаров из Excel или 1С за минуты.</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>ИИ-ассистент</h3><p>«Где лежит товар?», «что заканчивается?», прогноз спроса. Работает локально, без API-ключей.</p></div>
+      <div class="card"><div class="icon">💾</div><h3>Надёжность</h3><p>Автоматические резервные копии, шифрование базы (SQLCipher), журнал всех действий.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Скриншоты ─────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>Как выглядит</h2>
+    <figure style="margin-bottom:1.4rem">
+      <img class="shot-img" src="assets/img/screenshots/banner.png"
+           alt="SmartStock Desktop — склад, касса и маркировка в одной программе">
+    </figure>
+    <div class="grid c3">
+      <figure><img class="shot-img" src="assets/img/screenshots/dashboard.png" alt="Сводка — KPI-дашборд"><figcaption>Сводка — ключевые показатели при запуске</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/warehouse.png" alt="Склад — стеллажи и ячейки"><figcaption>Склад — заполненность ячеек цветом (светлая тема)</figcaption></figure>
+      <figure><img class="shot-img" src="assets/img/screenshots/ai-chat.png" alt="Чат с ИИ"><figcaption>ИИ-ассистент — сроки, ABC-анализ, закупки</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ── Две версии ────────────────────────────────────────────────────────── -->
+<section class="section dark">
+  <div class="container">
+    <div class="section-head">
+      <h2>Две версии — под ваш масштаб</h2>
+      <p class="muted">Начните с одной точки, вырастайте до сети — данные переносятся.</p>
+    </div>
+    <div class="grid c2">
+      <div class="card">
+        <div class="icon">🖥️</div>
+        <h3>SmartStock Desktop</h3>
+        <p>Один компьютер, один склад. Полный набор: касса, документы, партии,
+        отчёты, ИИ. Работает полностью офлайн. Разовая покупка.</p>
+        <p style="margin-top:1rem"><a class="btn ghost" href="desktop.html">Подробнее о десктопе</a></p>
+      </div>
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>SmartStock Server</h3>
+        <p>Для сети точек: те же десктопы работают офлайн, а при появлении сети
+        синхронизируются через ваш сервер — роли, общий журнал операций, чат,
+        разрешение конфликтов.</p>
+        <p style="margin-top:1rem"><a class="btn ghost" href="server.html">Подробнее о сервере</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Прайс-тизер ───────────────────────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container center">
+    <h2>Сколько стоит</h2>
+    <p class="muted">Desktop — <b>10 000 ₽ разово, всё включено</b>: программа,
+    установка, импорт ваших товаров и обучение. Серверная версия для сети
+    точек — <b>90 000 ₽</b> под ключ. Никаких подписок: купили — пользуетесь.</p>
+    <p style="margin-top:1.4rem">
+      <a class="btn" href="price.html">Смотреть прайс-лист</a>
+      <a class="btn ghost" href="buy.html" style="margin-left:.6rem">Как купить (СБП)</a>
+    </p>
+    <p class="muted small" style="margin-top:1rem">
+      Не уверены? <a href="files/SmartStock-2.2.0-Beta-Setup.exe" download>
+      Скачайте бесплатную бета-версию</a> — полный функционал,
+      до 10 товаров и 2 дня на знакомство.
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов (Ambassador of C++).<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="price.html">Прайс-лист</a>
+      <a href="license.html">Лицензионное соглашение</a>
+      <a href="buy.html">Оплата по СБП</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
