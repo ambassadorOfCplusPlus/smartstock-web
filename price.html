@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Прайс-лист — SmartStock</title>
-<meta name="description" content="Цены SmartStock: Desktop — 10 000 ₽ разово «всё включено» (установка, импорт товаров, обучение), серверная версия для сети точек — 90 000 ₽. Без подписок.">
+<meta name="description" content="Цены SmartStock: Desktop — 10 000 ₽ разово «всё включено», сервер для сети точек — 90 000 ₽, облако по подписке — от 250 ₽/мес (первая неделя бесплатно).">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="SmartStock">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Прайс-лист — SmartStock">
-<meta property="og:description" content="Цены SmartStock: Desktop — 10 000 ₽ разово «всё включено» (установка, импорт товаров, обучение), серверная версия для сети точек — 90 000 ₽. Без подписок.">
+<meta property="og:description" content="Цены SmartStock: Desktop — 10 000 ₽ разово «всё включено», сервер для сети точек — 90 000 ₽, облако по подписке — от 250 ₽/мес (первая неделя бесплатно).">
 <meta property="og:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
@@ -29,6 +29,7 @@
       <a href="index.html">Главная</a>
       <a href="desktop.html">Десктоп</a>
       <a href="server.html">Сервер</a>
+      <a href="cloud.html">Облако</a>
       <a href="price.html">Прайс</a>
       <a href="buy.html">Оплата</a>
       <a href="faq.html">FAQ</a>
@@ -41,8 +42,8 @@
 <section class="hero">
   <div class="container">
     <h1>Прайс-лист</h1>
-    <p class="lead">Никаких подписок и платежей «за пользователя в месяц».
-    Лицензия покупается один раз и работает всегда.</p>
+    <p class="lead">Десктоп и сервер — разовая покупка без подписок: купили и
+    пользуетесь. Нужен быстрый старт без установки — есть облако по подписке.</p>
   </div>
 </section>
 
@@ -141,13 +142,71 @@
   </div>
 </section>
 
+<!-- ── Облако (подписка) ─────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>SmartStock Облако (подписка)</h2>
+    <p class="muted" style="max-width:60ch">Работает в браузере, ничего не
+    устанавливать. Помесячная оплата по СБП, <b>первая неделя бесплатно</b>,
+    при оплате за год — <b>2 месяца в подарок</b>.</p>
+    <div class="grid c3" style="margin-top:2rem">
+
+      <div class="card price-card">
+        <h3>Старт</h3>
+        <div class="price">250 ₽</div>
+        <div class="per">в месяц</div>
+        <ul>
+          <li>1 склад, до 3 мест</li>
+          <li>Касса, склад, документы, отчёты</li>
+          <li>Маркетплейсы и обмен с 1С</li>
+          <li>Чат с поддержкой</li>
+          <li class="muted">Без ИИ-ассистента</li>
+        </ul>
+        <a class="btn ghost" href="contacts.html">Начать</a>
+      </div>
+
+      <div class="card price-card featured">
+        <span class="tag">Популярный</span>
+        <h3>Бизнес</h3>
+        <div class="price">900 ₽</div>
+        <div class="per">в месяц</div>
+        <ul>
+          <li>до 3 складов, до 10 мест</li>
+          <li>Всё из «Старта»</li>
+          <li><b>ИИ-ассистент</b></li>
+          <li>Чат с поддержкой</li>
+        </ul>
+        <a class="btn" href="contacts.html">Начать</a>
+      </div>
+
+      <div class="card price-card">
+        <h3>Безлимит</h3>
+        <div class="price">2 500 ₽</div>
+        <div class="per">в месяц</div>
+        <ul>
+          <li>Без ограничений по складам и местам</li>
+          <li>Все функции, включая ИИ</li>
+          <li>Чат с поддержкой</li>
+          <li>Приоритет в обработке заявок</li>
+        </ul>
+        <a class="btn ghost" href="contacts.html">Начать</a>
+      </div>
+
+    </div>
+    <p class="muted small" style="margin-top:1.2rem">
+      Цена — за организацию целиком, а не «за пользователя в месяц».
+      Подробнее — на странице <a href="cloud.html">облачной версии</a>.
+    </p>
+  </div>
+</section>
+
 <!-- ── Что входит всегда ─────────────────────────────────────────────────── -->
 <section class="section">
   <div class="container">
     <h2>Это входит в любую покупку</h2>
     <div class="grid c4">
-      <div class="card"><div class="icon">♾️</div><h3>Бессрочно</h3><p>Лицензия не сгорает. Никаких «продлений», чтобы программа продолжила работать.</p></div>
-      <div class="card"><div class="icon">🔐</div><h3>Ваши данные — у вас</h3><p>Никакого облака. База на вашем диске, зашифрована, с автокопиями.</p></div>
+      <div class="card"><div class="icon">♾️</div><h3>Без навязанных платежей</h3><p>Десктоп и сервер — купили навсегда, лицензия не сгорает. Облако — помесячно, без штрафов за отказ.</p></div>
+      <div class="card"><div class="icon">🔐</div><h3>Данные под защитой</h3><p>Десктоп и сервер — база у вас, зашифрована. Облако — на нашем сервере с ежедневными копиями.</p></div>
       <div class="card"><div class="icon">🆓</div><h3>Демонстрация до оплаты</h3><p>Покажу программу в видеозвонке, можно на ваших товарах.</p></div>
       <div class="card"><div class="icon">📄</div><h3>Прозрачные условия</h3><p>Простое <a href="license.html">лицензионное соглашение</a> на одну страницу — без мелкого шрифта.</p></div>
     </div>
