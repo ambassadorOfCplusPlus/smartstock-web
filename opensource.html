@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartStock — открытый код (MIT-модули)</title>
+<meta name="description" content="Открытые части проекта SmartStock под лицензией MIT: E2E-мессенджер, движок партионного учёта (FIFO/LIFO), offline-first синхронизация, склейка установщика, адаптеры маркетплейсов. Каждый модуль автономен, со своими тестами.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
+     площадки (VK/FB) требуют АБСОЛЮТНЫЙ url в og:image — замените на
+     https://ВАШ-ДОМЕН/assets/img/screenshots/banner.png -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="SmartStock — открытый код (MIT-модули)">
+<meta property="og:description" content="Открытые части проекта SmartStock под лицензией MIT: E2E-мессенджер, движок партионного учёта, offline-first синхронизация, склейка установщика, адаптеры маркетплейсов.">
+<meta property="og:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="cloud.html">Облако</a>
+      <a href="messenger.html">Мессенджер</a>
+      <a href="opensource.html">Открытый код</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Открытый код</h1>
+    <p class="lead">Часть проекта SmartStock выложена в открытый доступ под
+    лицензией <b>MIT</b>: самостоятельные модули, которые можно изучить, проверить
+    и использовать в своих проектах. Это не урезанная версия программы, а отдельные
+    инженерные куски — каждый со своим README и тестами.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/ambassadorOfCplusPlus/smartstack-opensource" target="_blank" rel="noopener">⭐ Смотреть на GitHub</a>
+      <a class="btn light" href="desktop.html">Готовая программа — десктоп</a>
+    </div>
+    <p class="small" style="color:#b7b5a9;margin-top:.7rem">
+      MIT — берите модули по отдельности, без ограничений. Продукты SmartStock
+      (десктоп, сервер, облако) остаются платными — открыт код переиспользуемых частей.
+    </p>
+    <div class="badges">
+      <span class="badge">📜 Лицензия MIT</span>
+      <span class="badge">🧩 5 автономных модулей</span>
+      <span class="badge">✅ 101 тест суммарно</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Зачем открывать код ───────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Зачем это вам</h2>
+      <p class="muted">Открытый код — лучший ответ на вопрос «почему доверять
+      частному разработчику, а не компании».</p>
+    </div>
+    <div class="grid c3">
+      <div class="card"><div class="icon">🔍</div><h3>Проверяемо</h3><p>Реальный код, который можно прочитать и прогнать тесты, а не скриншоты и обещания. Видно, как именно считается учёт и шифруется переписка.</p></div>
+      <div class="card"><div class="icon">🧱</div><h3>Зрелая инженерия</h3><p>Алгоритмы отделены от хранилища и сети интерфейсами, на всё есть тесты. Те же решения работают внутри платных продуктов SmartStock.</p></div>
+      <div class="card"><div class="icon">♻️</div><h3>Польза сообществу</h3><p>Нужен только движок партионного учёта или адаптеры маркетплейсов? Берите модуль отдельно под MIT — без оглядки на остальной проект.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Модули ────────────────────────────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container">
+    <div class="section-head">
+      <h2>Модули</h2>
+      <p class="muted">Пять самостоятельных частей, выделенных из проекта
+      SmartStock. Каждая автономна, со своей лицензией MIT, README и тестами.</p>
+    </div>
+    <div class="grid c2">
+
+      <div class="card">
+        <h3>💬 messenger</h3>
+        <p>Самостоятельный <b>E2E-мессенджер</b>: сервер, веб-клиент и нативный
+        Qt-клиент. Группы, файлы, сквозное шифрование — приватный ключ не покидает
+        устройство, веб- и Qt-клиенты совместимы по формату шифрования.</p>
+        <p class="muted small">Node / Fastify / Prisma · vanilla JS (tweetnacl) · Qt6 / libsodium</p>
+        <p><span class="badge">✅ 17 / 17 тестов</span> &nbsp; <a href="messenger.html">Подробнее о мессенджере →</a></p>
+      </div>
+
+      <div class="card">
+        <h3>🧮 writeoff-engine</h3>
+        <p><b>Движок партионного учёта</b>: списание по партиям FIFO / LIFO /
+        средневзвешенная, резервы, возвраты. Не привязан к базе данных — хранилище
+        подключается через интерфейс <code>BatchStore</code>.</p>
+        <p class="muted small">TypeScript (+ оригинал на C++ в <code>cpp-reference/</code>)</p>
+        <span class="badge">✅ 14 / 14 тестов</span>
+      </div>
+
+      <div class="card">
+        <h3>🔄 sync-engine</h3>
+        <p><b>Offline-first синхронизация</b> (референс-дизайн + ядро): журнал
+        событий, идемпотентность по UUID, vector clocks, два типа конфликтов —
+        физический (недостача → инвентаризация) и смысловой (голосование).</p>
+        <p class="muted small">TypeScript (ядро) + DESIGN.md</p>
+        <span class="badge">✅ 40 / 40 тестов</span>
+      </div>
+
+      <div class="card">
+        <h3>🛒 marketplace-adapters</h3>
+        <p><b>Адаптеры маркетплейсов</b> (FBS): Wildberries / Ozon / Яндекс.Маркет /
+        Сбер — выгрузка остатков и цен, импорт заказов. HTTP-клиент инъектируется,
+        ключи продавца не хранятся в библиотеке.</p>
+        <p class="muted small">TypeScript, ноль рантайм-зависимостей</p>
+        <span class="badge">✅ 23 / 23 тестов</span>
+      </div>
+
+      <div class="card">
+        <h3>📦 installer-glue</h3>
+        <p><b>Склейка установщика</b>: дописывает в конец готового <code>base.exe</code>
+        хвост с манифестом и файлами — персональный установщик за миллисекунды, без
+        перекомпиляции. Библиотека + CLI.</p>
+        <p class="muted small">Node.js (только встроенные модули)</p>
+        <span class="badge">✅ 7 / 7 тестов</span>
+      </div>
+
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <h3>Всё это — на GitHub</h3>
+        <p class="muted">Исходники, README и тесты каждого модуля. Issues и
+        pull request'ы приветствуются.</p>
+        <p style="margin-top:1rem"><a class="btn ghost" href="https://github.com/ambassadorOfCplusPlus/smartstack-opensource" target="_blank" rel="noopener">Открыть репозиторий →</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Чем интересно ─────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <h2>Что внутри интересного</h2>
+    <div class="grid c3" style="margin-top:1.2rem">
+      <div class="card">
+        <div class="icon">🔐</div>
+        <h3>Кросс-платформенная E2E-крипта</h3>
+        <p>Один формат шифрования (<code>crypto_box</code> / <code>secretbox</code>)
+        работает и в вебе (tweetnacl), и в нативном Qt (libsodium). Групповой
+        «пер-получательский конверт», гибрид для файлов.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚖️</div>
+        <h3>Два типа конфликтов</h3>
+        <p>Сначала спроси, что конфликтует — <b>факт или мнение</b>. Двойное
+        списание остатка не разрулить голосованием (это недостача), а две разные
+        цены — наоборот, решаются голосованием. Разные стратегии для разных случаев.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Склейка вместо пересборки</h3>
+        <p>Лишние байты после полезной нагрузки PE/ELF загрузчик игнорирует — exe
+        остаётся валидным. Персональная сборка под пользователя за миллисекунды,
+        без тулчейна на сервере. CRC32 zlib-совместим: один формат, две реализации.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container center">
+    <h2>Нужна готовая программа, а не код?</h2>
+    <p class="muted">Открытые модули — для разработчиков. Если нужен готовый
+    складской учёт «поставил и работай» — это <a href="desktop.html">десктоп</a>,
+    <a href="server.html">сервер</a> для сети точек или <a href="cloud.html">облако</a>
+    по подписке.</p>
+    <p style="margin-top:1.4rem">
+      <a class="btn" href="https://github.com/ambassadorOfCplusPlus/smartstack-opensource" target="_blank" rel="noopener">⭐ GitHub</a>
+      <a class="btn light" href="price.html" style="margin-left:.6rem">Цены на продукты</a>
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов (Ambassador of C++).<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="price.html">Прайс-лист</a>
+      <a href="opensource.html">Открытый код (GitHub)</a>
+      <a href="license.html">Лицензионное соглашение</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
