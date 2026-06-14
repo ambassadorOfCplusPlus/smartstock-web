@@ -59,11 +59,11 @@
       полную версию.
     </p>
     <div class="badges">
-      <span class="badge">⚡ Нативная программа (C++/Qt), не браузер</span>
-      <span class="badge">🔒 Данные на вашем ПК, БД зашифрована</span>
-      <span class="badge">🧾 Касса 54-ФЗ (АТОЛ)</span>
-      <span class="badge">✅ 204 автотеста</span>
-      <span class="badge">🤖 Локальный ИИ-ассистент</span>
+      <span class="badge">⚡ Быстрый запуск и работа</span>
+      <span class="badge">🔒 Данные хранятся у вас и под защитой</span>
+      <span class="badge">🧾 Касса по 54-ФЗ</span>
+      <span class="badge">♾️ Разовая оплата, без подписок</span>
+      <span class="badge">🤖 ИИ-ассистент</span>
     </div>
   </div>
 </section>
@@ -96,14 +96,14 @@
     <div class="grid c3">
       <div class="card"><div class="icon">🧾</div><h3>Касса и чеки 54-ФЗ</h3><p>Продажа с корзиной, скидки и акции, USB-сканер, фискальные чеки через драйвер АТОЛ.</p></div>
       <div class="card"><div class="icon">📑</div><h3>Документы РФ</h3><p>Счёт, счёт-фактура, ТОРГ-12, акт — с реквизитами, суммой прописью, печатью и PDF.</p></div>
-      <div class="card"><div class="icon">🧮</div><h3>Партионный учёт</h3><p>Каждая поставка со своей себестоимостью: FIFO / LIFO / средняя, точные возвраты.</p></div>
-      <div class="card"><div class="icon">🏗️</div><h3>Наглядный склад</h3><p>Стеллажи и ячейки с цветовой заполненностью, умное размещение по объёму и весу.</p></div>
-      <div class="card"><div class="icon">🏷️</div><h3>Маркировка и серийники</h3><p>Коды «Честный знак» (локальный учёт), серийные номера и гарантия, наборы товаров.</p></div>
-      <div class="card"><div class="icon">🛒</div><h3>Маркетплейсы WB / Ozon</h3><p>Выгрузка остатков на Wildberries и Ozon и цен в Ozon, импорт заказов с автосписанием по партиям (FBS).</p></div>
-      <div class="card"><div class="icon">📊</div><h3>Отчёты и аналитика</h3><p>Остатки, продажи, ABC-анализ, КУДиР, бюджет и планирование закупок. Экспорт в Excel.</p></div>
+      <div class="card"><div class="icon">🧮</div><h3>Учёт по поставкам</h3><p>Каждая поставка со своей закупочной ценой — видите точную прибыль и аккуратные возвраты.</p></div>
+      <div class="card"><div class="icon">🏗️</div><h3>Наглядный склад</h3><p>Стеллажи и ячейки с цветовой заполненностью, подсказки, куда положить товар.</p></div>
+      <div class="card"><div class="icon">🏷️</div><h3>Маркировка и серийники</h3><p>Учёт кодов «Честный знак», серийные номера и гарантия, наборы товаров.</p></div>
+      <div class="card"><div class="icon">🛒</div><h3>Маркетплейсы WB / Ozon</h3><p>Обновление остатков и цен на Wildberries и Ozon, заказы с площадок подтягиваются автоматически.</p></div>
+      <div class="card"><div class="icon">📊</div><h3>Отчёты и аналитика</h3><p>Остатки, продажи, ходовые и залежавшиеся товары, бюджет и подсказки по закупкам. Выгрузка в Excel.</p></div>
       <div class="card"><div class="icon">📥</div><h3>Быстрый старт</h3><p>Мастер первого запуска: реквизиты → склад → импорт ваших товаров из Excel или 1С за минуты.</p></div>
-      <div class="card"><div class="icon">🤖</div><h3>ИИ-ассистент</h3><p>«Где лежит товар?», «что заканчивается?», прогноз спроса. Работает локально, без API-ключей.</p></div>
-      <div class="card"><div class="icon">💾</div><h3>Надёжность</h3><p>Автоматические резервные копии, шифрование базы (SQLCipher), журнал всех действий.</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>ИИ-ассистент</h3><p>«Где лежит товар?», «что заканчивается?», прогноз спроса. Работает прямо в программе.</p></div>
+      <div class="card"><div class="icon">💾</div><h3>Надёжность</h3><p>Автоматические резервные копии, защита данных и журнал всех действий.</p></div>
     </div>
   </div>
 </section>
@@ -159,22 +159,59 @@
   </div>
 </section>
 
-<!-- ── Прайс-тизер ───────────────────────────────────────────────────────── -->
+<!-- ── Прайс-тизер (карточки) ────────────────────────────────────────────── -->
 <section class="section soft">
-  <div class="container center">
-    <h2>Сколько стоит</h2>
-    <p class="muted">Desktop — <b>1 000 ₽ разово, всё включено</b>: программа,
-    установка, импорт ваших товаров и обучение. Серверная версия для сети
-    точек — <b>15 000 ₽</b> под ключ. Облако по подписке — <b>скоро будет
-    готово</b> (идёт разработка): будет работать в браузере, без установки.</p>
-    <p style="margin-top:1.4rem">
-      <a class="btn" href="price.html">Смотреть прайс-лист</a>
-      <a class="btn ghost" href="buy.html" style="margin-left:.6rem">Как купить (СБП)</a>
-    </p>
-    <p class="muted small" style="margin-top:1rem">
-      Не уверены? <a href="files/SmartStock-2.3.0-Beta-Setup.exe" download>
-      Скачайте бесплатную бета-версию</a> — полный функционал,
-      без ограничения по товарам, 1 день на знакомство.
+  <div class="container">
+    <div class="section-head center" style="margin-left:auto;margin-right:auto">
+      <h2>Сколько стоит</h2>
+      <p class="muted">Прозрачно: десктоп и сервер — один раз и навсегда,
+      облако — по подписке. Без скрытых платежей.</p>
+    </div>
+    <div class="grid c3" style="margin-top:.5rem">
+
+      <div class="card price-card featured">
+        <span class="tag">Хит</span>
+        <h3>Desktop</h3>
+        <div class="price">1 000 ₽</div>
+        <div class="per">один раз, навсегда</div>
+        <ul>
+          <li>Вся программа без урезаний</li>
+          <li>Установка и перенос ваших товаров</li>
+          <li>Обучение и поддержка</li>
+        </ul>
+        <a class="btn" href="price.html">Подробнее и купить</a>
+      </div>
+
+      <div class="card price-card">
+        <h3>Server</h3>
+        <div class="price">15 000 ₽</div>
+        <div class="per">под ключ, для сети точек</div>
+        <ul>
+          <li>Несколько магазинов в одной системе</li>
+          <li>Общие остатки и сотрудники</li>
+          <li>Настройка и обучение</li>
+        </ul>
+        <a class="btn ghost" href="server.html">Подробнее</a>
+      </div>
+
+      <div class="card price-card">
+        <span class="tag">🚧 Скоро</span>
+        <h3>Облако</h3>
+        <div class="price">Скоро</div>
+        <div class="per">по подписке, в браузере</div>
+        <ul>
+          <li>Ничего не нужно устанавливать</li>
+          <li>Доступ с любого компьютера</li>
+          <li>Идёт разработка</li>
+        </ul>
+        <a class="btn ghost" href="cloud.html">Узнать о запуске</a>
+      </div>
+
+    </div>
+    <p class="muted small center" style="margin-top:1.4rem">
+      Не уверены? <a href="files/SmartStock-2.3.0-Beta-Setup.exe" download>Скачайте
+      бесплатную бета-версию</a> — полный функционал, без ограничения по товарам,
+      1 день на знакомство.
     </p>
   </div>
 </section>
@@ -182,7 +219,7 @@
 <footer class="site-footer">
   <div class="container cols">
     <div>
-      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов (Ambassador of C++).<br>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов.<br>
       © <span data-year></span>. Все права защищены.
     </div>
     <div class="foot-nav">
@@ -192,6 +229,7 @@
     </div>
     <nav class="foot-nav">
       <a href="price.html">Прайс-лист</a>
+      <a href="tech.html">Технические детали</a>
       <a href="license.html">Лицензионное соглашение</a>
       <a href="buy.html">Оплата по СБП</a>
       <a href="contacts.html">Контакты</a>
