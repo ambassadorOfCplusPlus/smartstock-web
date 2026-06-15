@@ -82,17 +82,19 @@ h3 { font-size: 1.15rem; margin: 0 0 .5em; }
 }
 .site-header .container {
   display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem;            /* гарантированный зазор между логотипом и меню */
   height: 60px;
 }
-.logo { display: flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.12rem; color: var(--dark-ink); }
+.logo { display: flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.08rem; color: var(--dark-ink); flex: 0 0 auto; }
 .logo:hover { text-decoration: none; }
 .logo .mark {
   display: inline-grid; place-items: center;
   width: 30px; height: 30px; border-radius: 8px;
   background: var(--accent); color: #fff; font-size: 1rem;
 }
-.nav { display: flex; gap: 1.1rem; align-items: center; }
-.nav a { color: var(--dark-mut); font-size: .95rem; }
+.nav { display: flex; gap: .9rem; align-items: center; }
+/* nowrap — иначе длинные пункты («Открытый код») ломались на 2 строки */
+.nav a { color: var(--dark-mut); font-size: .9rem; white-space: nowrap; }
 .nav a:hover { color: var(--dark-ink); text-decoration: none; }
 .nav a.active { color: var(--accent); font-weight: 600; }
 .nav .btn { padding: .42rem .95rem; }
@@ -289,12 +291,9 @@ img.emoji {
 .lightbox .lb-close:hover { opacity: 1; }
 
 /* ── Адаптив ───────────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .grid.c4 { grid-template-columns: repeat(2, 1fr); }
-  .grid.c3 { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .grid.c2, .grid.c3, .grid.c4 { grid-template-columns: 1fr; }
+/* Меню сворачивается в «бургер» уже на узких ПК-окнах (≤1024px): 10 пунктов +
+   кнопка не помещаются в одну строку и «съезжали»/жались к логотипу. */
+@media (max-width: 1024px) {
   .burger { display: block; }
   .nav {
     display: none; position: absolute; top: 60px; left: 0; right: 0;
@@ -302,6 +301,13 @@ img.emoji {
     background: var(--dark); border-bottom: 1px solid #3a3a38; padding: .5rem 0;
   }
   .nav.open { display: flex; }
-  .nav a { padding: .75rem 20px; }
+  .nav a { padding: .75rem 20px; white-space: normal; }
   .nav .btn { margin: .5rem 20px; text-align: center; }
+}
+@media (max-width: 900px) {
+  .grid.c4 { grid-template-columns: repeat(2, 1fr); }
+  .grid.c3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid.c2, .grid.c3, .grid.c4 { grid-template-columns: 1fr; }
 }
