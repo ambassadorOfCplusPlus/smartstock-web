@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Прайс-лист — SmartStock</title>
-<meta name="description" content="Цены SmartStock: Desktop — 1 000 ₽ разово «всё включено», сервер для сети точек — 15 000 ₽, облако по подписке — скоро.">
+<meta name="description" content="Цены SmartStock: издания Desktop от 690 ₽ (Документы), Склад 1 490 ₽, Касса 1 990 ₽, Маркетплейс 1 990 ₽, Полный 2 990 ₽ — разово, без подписки. Сервер для сети точек — 15 000 ₽, облако — скоро.">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="SmartStock">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Прайс-лист — SmartStock">
-<meta property="og:description" content="Цены SmartStock: Desktop — 1 000 ₽ разово «всё включено», сервер для сети точек — 15 000 ₽, облако по подписке — скоро.">
+<meta property="og:description" content="Цены SmartStock: издания Desktop от 690 ₽ (Документы), Склад 1 490 ₽, Касса 1 990 ₽, Маркетплейс 1 990 ₽, Полный 2 990 ₽ — разово, без подписки. Сервер для сети точек — 15 000 ₽, облако — скоро.">
 <meta property="og:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
@@ -44,68 +44,105 @@
 <section class="hero">
   <div class="container">
     <h1>Прайс-лист</h1>
-    <p class="lead">Десктоп и сервер — разовая покупка без подписок: купили и
-    пользуетесь. Нужен быстрый старт без установки — есть облако по подписке.</p>
+    <p class="lead">Платите только за то, что нужно: выберите издание под свою
+    задачу. Разовая покупка без подписок, апгрейд — доплатой разницы. Нужен
+    быстрый старт без установки — есть облако по подписке.</p>
   </div>
 </section>
 
-<!-- ── Тарифы Desktop ────────────────────────────────────────────────────── -->
+<!-- ── Издания Desktop ───────────────────────────────────────────────────── -->
 <section class="section">
   <div class="container">
-    <h2>SmartStock Desktop</h2>
+    <h2>Издания SmartStock Desktop</h2>
+    <p class="muted" style="max-width:64ch">Один и тот же продукт, разные наборы
+    модулей — берите под свою задачу. Разовая оплата, без подписки. Нужно больше —
+    апгрейд до старшего издания доплатой разницы, данные сохраняются.</p>
     <div class="grid c3" style="margin-top:2rem">
+
+      <div class="card price-card">
+        <h3>Документы</h3>
+        <div class="price">690 ₽</div>
+        <div class="per">микро-ИП / услуги</div>
+        <ul>
+          <li>Счёт, счёт-фактура, ТОРГ-12, акт</li>
+          <li><b>УПД 5.03</b> (XML для ЭДО)</li>
+          <li>Контрагенты, печать и PDF, импорт Excel</li>
+        </ul>
+        <a class="btn ghost" href="upd.html">Подробнее</a>
+        <a class="btn" href="buy.html" style="margin-top:.5rem">Купить</a>
+      </div>
+
+      <div class="card price-card">
+        <h3>Склад</h3>
+        <div class="price">1 490 ₽</div>
+        <div class="per">склад / опт без розницы</div>
+        <ul>
+          <li>Ячейки, размещение, приёмка</li>
+          <li>Партии, резервы, ИНВ-3</li>
+          <li>Поставщики, отчёты, ABC, этикетки</li>
+        </ul>
+        <a class="btn ghost" href="sklad.html">Подробнее</a>
+        <a class="btn" href="buy.html" style="margin-top:.5rem">Купить</a>
+      </div>
+
+      <div class="card price-card">
+        <h3>Касса / Розница</h3>
+        <div class="price">1 990 ₽</div>
+        <div class="per">небольшой магазин</div>
+        <ul>
+          <li>Касса, чеки 54-ФЗ (АТОЛ), возвраты</li>
+          <li>Скидки, акции, бонусы, маркировка</li>
+          <li>Инвентаризация, этикетки, отчёты</li>
+        </ul>
+        <a class="btn ghost" href="kassa.html">Подробнее</a>
+        <a class="btn" href="buy.html" style="margin-top:.5rem">Купить</a>
+      </div>
+
+      <div class="card price-card">
+        <h3>Маркетплейс</h3>
+        <div class="price">1 990 ₽</div>
+        <div class="per">селлер WB / Ozon (FBS)</div>
+        <ul>
+          <li>Остатки и цены на WB / Ozon</li>
+          <li>Импорт заказов с автосписанием</li>
+          <li>Маркировка, заказы, этикетки, отчёты</li>
+        </ul>
+        <a class="btn ghost" href="marketplace.html">Подробнее</a>
+        <a class="btn" href="buy.html" style="margin-top:.5rem">Купить</a>
+      </div>
+
+      <div class="card price-card featured">
+        <span class="tag">Лучшее предложение</span>
+        <h3>Полный (всё включено)</h3>
+        <div class="price">2 990 ₽</div>
+        <div class="per"><s>4 900 ₽</s> · все модули + ИИ-ассистент</div>
+        <ul>
+          <li>Все 4 издания в одной программе</li>
+          <li>Бюджет, планирование, ИИ-ассистент</li>
+          <li>Установка, обучение, импорт ваших данных</li>
+          <li>Выгоднее, чем купить два издания</li>
+        </ul>
+        <a class="btn" href="buy.html">Купить полный</a>
+      </div>
 
       <div class="card price-card">
         <h3>Знакомство</h3>
         <div class="price">0 ₽</div>
-        <div class="per">до покупки</div>
+        <div class="per">проба до покупки</div>
         <ul>
-          <li><b>Бета-версия для самостоятельной пробы</b>: полный функционал,
-              без ограничения по товарам, 1 день — без регистрации</li>
-          <li>Или видеодемонстрация — 15–20 минут, можно на ваших товарах</li>
-          <li>Честный ответ, подойдёт ли вам (или лучше 1С/облако)</li>
+          <li><b>Бета</b>: полный функционал, без лимита по товарам, 1 день</li>
+          <li>Или видеодемонстрация на ваших товарах</li>
           <li>Данные из беты сохранятся в полной версии</li>
         </ul>
         <a class="btn ghost" href="files/SmartStock-2.4.0-Beta-Setup.exe" download>🎁 Скачать бету</a>
       </div>
 
-      <div class="card price-card featured">
-        <span class="tag">Основной вариант</span>
-        <h3>SmartStock Desktop — всё включено</h3>
-        <div class="price">1 000 ₽</div>
-        <div class="per">разово, навсегда — никаких подписок</div>
-        <ul>
-          <li>Программа целиком: все разделы, без урезаний</li>
-          <li>Установщик + портативная версия + руководство</li>
-          <li>Установка и настройка удалённо</li>
-          <li>Реквизиты организации, склад и ячейки</li>
-          <li><b>Импорт ваших товаров и остатков</b> из Excel или 1С</li>
-          <li>Обучение — 1 час в видеозвонке</li>
-          <li>Поддержка — 60 дней; исправление ошибок — бессрочно</li>
-        </ul>
-        <a class="btn" href="buy.html">Купить</a>
-      </div>
-
-      <div class="card price-card">
-        <h3>Доработка под вас</h3>
-        <div class="price">от 5 000 ₽</div>
-        <div class="per">по техзаданию</div>
-        <ul>
-          <li>Свои печатные формы и отчёты</li>
-          <li>Дополнительные поля и справочники</li>
-          <li>Интеграции (по обсуждению)</li>
-          <li>Нишевые шаблоны: одежда, продукты, запчасти…</li>
-          <li>Ориентир: 2 000 ₽/час или фикс за фичу</li>
-        </ul>
-        <a class="btn ghost" href="contacts.html">Обсудить задачу</a>
-      </div>
-
     </div>
 
     <p class="muted small" style="margin-top:1.2rem">
-      Дополнительное рабочее место (второй компьютер того же владельца) —
-      <b>+3 000 ₽</b>. Годовая поддержка с приоритетными ответами и
-      обновлениями — <b>4 900 ₽/год</b> (по желанию, программа работает и без неё).
+      Доп. рабочее место (второй компьютер того же владельца) — <b>+3 000 ₽</b>.
+      Индивидуальные доработки (свои печатные формы, поля, интеграции) — от
+      <b>5 000 ₽</b> по ТЗ. <a href="contacts.html">Обсудить</a>.
     </p>
   </div>
 </section>
@@ -242,6 +279,8 @@
       <a href="price.html">Прайс-лист</a>
       <a href="upd.html">Программа для УПД 5.03</a>
       <a href="sklad.html">Программа для склада</a>
+      <a href="kassa.html">Программа для магазина</a>
+      <a href="marketplace.html">Учёт для маркетплейсов</a>
       <a href="tech.html">Технические детали</a>
       <a href="license.html">Лицензионное соглашение</a>
       <a href="buy.html">Оплата по СБП</a>
