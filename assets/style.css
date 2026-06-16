@@ -84,8 +84,8 @@ h3 { font-size: 1.15rem; margin: 0 0 .5em; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 1.5rem;          /* зазор между логотипом и меню */
   min-height: 64px;     /* min, а не фикс: шапка может подрасти, не обрезает */
-  max-width: 100%;      /* шапка — НА ВСЮ ШИРИНУ экрана (контент ниже остаётся 1080) */
-  padding: 0 28px;
+  max-width: 1280px;    /* шире контента (1080), но НЕ во весь экран: меню держится
+                           ближе к центру, не уезжает к самому краю экрана */
 }
 .logo { display: flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.08rem; color: var(--dark-ink); flex: 0 0 auto; }
 .logo:hover { text-decoration: none; }
