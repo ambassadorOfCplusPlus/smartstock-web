@@ -10,6 +10,11 @@
     burger.addEventListener("click", function () {
       nav.classList.toggle("open");
     });
+    // Возврат к десктопной ширине (>1280px) — снимаем .open, чтобы состояние
+    // меню не «залипало» после ресайза/поворота экрана.
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1280) nav.classList.remove("open");
+    });
   }
 
   // ── Активный пункт меню по имени файла ───────────────────────────────────
