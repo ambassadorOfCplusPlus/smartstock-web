@@ -94,12 +94,12 @@ h3 { font-size: 1.15rem; margin: 0 0 .5em; }
   width: 30px; height: 30px; border-radius: 8px;
   background: var(--accent); color: #fff; font-size: 1rem;
 }
-/* Меню — компактной группой справа с ровным интервалом (НЕ растягиваем на всю
-   ширину: space-between давал слишком большие промежутки между пунктами).
-   flex-wrap — страховка от переполнения на узком десктопе. */
-.nav { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+/* Меню — компактной группой справа, в ОДИН ряд БЕЗ переноса (иначе кнопка
+   «Купить» «улетала» на 2-ю строку вверх). Плотный интервал + чуть меньше шрифт,
+   чтобы 12 пунктов + кнопка влезали в строку от порога бургера (1181px) и шире. */
+.nav { display: flex; gap: .55rem; align-items: center; flex-wrap: nowrap; justify-content: flex-end; }
 /* nowrap на самих пунктах — чтобы слова («Открытый код») не рвались внутри ссылки */
-.nav a { color: var(--dark-mut); font-size: .95rem; white-space: nowrap; }
+.nav a { color: var(--dark-mut); font-size: .9rem; white-space: nowrap; }
 .nav a:hover { color: var(--dark-ink); text-decoration: none; }
 .nav a.active { color: var(--accent); font-weight: 600; }
 .nav .btn { padding: .42rem .95rem; }
