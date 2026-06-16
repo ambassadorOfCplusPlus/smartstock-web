@@ -83,7 +83,8 @@ h3 { font-size: 1.15rem; margin: 0 0 .5em; }
 .site-header .container {
   display: flex; align-items: center; justify-content: space-between;
   gap: 2rem;            /* гарантированный зазор между логотипом и меню */
-  height: 60px;
+  min-height: 60px;     /* min, а не фикс: если меню в редком краевом случае
+                           переносится на 2-ю строку — шапка растёт, не обрезает */
 }
 .logo { display: flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.08rem; color: var(--dark-ink); flex: 0 0 auto; }
 .logo:hover { text-decoration: none; }
@@ -92,9 +93,12 @@ h3 { font-size: 1.15rem; margin: 0 0 .5em; }
   width: 30px; height: 30px; border-radius: 8px;
   background: var(--accent); color: #fff; font-size: 1rem;
 }
-.nav { display: flex; gap: .9rem; align-items: center; }
-/* nowrap — иначе длинные пункты («Открытый код») ломались на 2 строки */
-.nav a { color: var(--dark-mut); font-size: .9rem; white-space: nowrap; }
+/* flex-wrap — страховка: на узком десктопе (≈1025–1080px) длинное меню из 12
+   пунктов перенесётся вправо вниз, а не уедет за край; justify-content держит
+   его прижатым к правому краю. На широких экранах помещается в один ряд. */
+.nav { display: flex; gap: .65rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+/* nowrap на самих пунктах — чтобы слова («Открытый код») не рвались внутри ссылки */
+.nav a { color: var(--dark-mut); font-size: .85rem; white-space: nowrap; }
 .nav a:hover { color: var(--dark-ink); text-decoration: none; }
 .nav a.active { color: var(--accent); font-weight: 600; }
 .nav .btn { padding: .42rem .95rem; }
