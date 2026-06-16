@@ -94,9 +94,10 @@ h3 { font-size: 1.15rem; margin: 0 0 .5em; }
   width: 30px; height: 30px; border-radius: 8px;
   background: var(--accent); color: #fff; font-size: 1rem;
 }
-/* Меню занимает всё свободное место после логотипа (flex:1) и РАСТЯГИВАЕТ пункты
-   по ширине экрана (space-between). flex-wrap — страховка от переполнения. */
-.nav { display: flex; flex: 1; gap: .5rem; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+/* Меню — компактной группой справа с ровным интервалом (НЕ растягиваем на всю
+   ширину: space-between давал слишком большие промежутки между пунктами).
+   flex-wrap — страховка от переполнения на узком десктопе. */
+.nav { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 /* nowrap на самих пунктах — чтобы слова («Открытый код») не рвались внутри ссылки */
 .nav a { color: var(--dark-mut); font-size: .95rem; white-space: nowrap; }
 .nav a:hover { color: var(--dark-ink); text-decoration: none; }
