@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:600px; }
+  body { font-family: "Segoe UI", Arial, sans-serif; }
+  .banner {
+    width:1200px; height:600px; position:relative; overflow:hidden;
+    background: radial-gradient(1200px 600px at 80% -10%, #1f3a4d 0%, #16252f 55%, #101a22 100%);
+    color:#eef5f8; padding:56px 64px;
+  }
+  .top { display:flex; align-items:center; justify-content:space-between; }
+  .logo { font-size:34px; font-weight:800; letter-spacing:.5px; }
+  .logo .a { color:#36d3c0; }
+  .edition { font-size:15px; letter-spacing:3px; color:#8fb6bf; font-weight:700; }
+  h1 { margin-top:78px; font-size:52px; line-height:1.12; font-weight:800; max-width:940px; }
+  h1 .hl { color:#36d3c0; }
+  .sub { margin-top:22px; font-size:21px; color:#aecbd4; max-width:920px; }
+  .feats { margin-top:40px; display:flex; gap:34px; font-size:19px; color:#d6ecf2; }
+  .feats span:before { content:"✓ "; color:#36d399; font-weight:800; }
+  .badges { position:absolute; left:64px; bottom:54px; display:flex; gap:14px; }
+  .badge { background:#36d3c0; color:#08201d; font-weight:800; font-size:18px;
+           padding:8px 16px; border-radius:10px; }
+  .badge.alt { background:#21323b; color:#cfe9ee; }
+  .foot { position:absolute; right:64px; bottom:60px; font-size:15px; color:#7fa0aa; }
+</style></head><body>
+  <div class="banner">
+    <div class="top">
+      <div class="logo">🌐 Smart<span class="a">Stock</span></div>
+      <div class="edition">SERVER EDITION</div>
+    </div>
+    <h1>Сеть точек —<br><span class="hl">общий учёт и синхронизация</span></h1>
+    <div class="sub">Те же десктопы офлайн + сервер: роли, общий журнал операций, чат, разрешение конфликтов</div>
+    <div class="feats">
+      <span>Мультипользователь</span><span>Синхронизация</span><span>Свой сервер</span>
+    </div>
+    <div class="badges">
+      <div class="badge">v2.5.0</div>
+      <div class="badge alt">Node.js + PostgreSQL</div>
+      <div class="badge alt">Self-hosted</div>
+    </div>
+    <div class="foot">smartstock · сеть ваших точек</div>
+  </div>
+</body></html>
