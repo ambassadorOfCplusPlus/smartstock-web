@@ -87,7 +87,8 @@
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
 
     var revealSel = ".card, .section-head, .step, .price-card, figure, " +
-                    ".table-wrap, .pay-box, .doc .note, .contact-list";
+                    ".table-wrap, .pay-box, .doc .note, .contact-list, " +
+                    ".stat, .compare .col";
     document.querySelectorAll(revealSel).forEach(function (el) {
       el.classList.add("reveal");
       io.observe(el);
