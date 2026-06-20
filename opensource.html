@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SmartStock — открытый код (MIT-модули)</title>
-<meta name="description" content="Открытые части проекта SmartStock под лицензией MIT: E2E-мессенджер, движок партионного учёта (FIFO/LIFO), offline-first синхронизация, склейка установщика, адаптеры маркетплейсов. Каждый модуль автономен, со своими тестами.">
+<meta name="description" content="Открытые части проекта SmartStock под лицензией MIT: E2E-мессенджер, навигация по складу (QR+AR/PDR), движок партионного учёта (FIFO/LIFO), offline-first синхронизация, склейка установщика, адаптеры маркетплейсов. Каждый модуль автономен, со своими тестами.">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <!-- OG-карточка для Telegram/WhatsApp/Avito. ВАЖНО: после публикации некоторые
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="SmartStock">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="SmartStock — открытый код (MIT-модули)">
-<meta property="og:description" content="Открытые части проекта SmartStock под лицензией MIT: E2E-мессенджер, движок партионного учёта, offline-first синхронизация, склейка установщика, адаптеры маркетплейсов.">
+<meta property="og:description" content="Открытые части проекта SmartStock под лицензией MIT: E2E-мессенджер, навигация по складу (QR+AR), движок партионного учёта, offline-first синхронизация, склейка установщика, адаптеры маркетплейсов.">
 <meta property="og:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner.png">
@@ -31,6 +31,7 @@
       <a href="server.html">Сервер</a>
       <a href="cloud.html">Облако</a>
       <a href="messenger.html">Мессенджер</a>
+      <a href="navigator.html">Навигация</a>
       <a href="opensource.html">Открытый код</a>
       <a href="price.html">Прайс</a>
       <a href="buy.html">Оплата</a>
@@ -60,8 +61,8 @@
     </p>
     <div class="badges">
       <span class="badge">📜 Лицензия MIT</span>
-      <span class="badge">🧩 5 автономных модулей</span>
-      <span class="badge">✅ 101 тест суммарно</span>
+      <span class="badge">🧩 6 автономных модулей</span>
+      <span class="badge">✅ 193 теста суммарно</span>
     </div>
   </div>
 </section>
@@ -87,7 +88,7 @@
   <div class="container">
     <div class="section-head">
       <h2>Модули</h2>
-      <p class="muted">Пять самостоятельных частей, выделенных из проекта
+      <p class="muted">Шесть самостоятельных частей, выделенных из проекта
       SmartStock. Каждая автономна, со своей лицензией MIT, README и тестами.</p>
     </div>
     <div class="grid c2">
@@ -117,6 +118,17 @@
         физический (недостача → инвентаризация) и смысловой (голосование).</p>
         <p class="muted small">TypeScript (ядро) + DESIGN.md</p>
         <span class="badge">✅ 40 / 40 тестов</span>
+      </div>
+
+      <div class="card">
+        <h3>🧭 warehouse-navigator</h3>
+        <p><b>Навигация по складу «доведи до товара»</b> — без GPS: телефон
+        ведёт к ячейке по <b>QR-меткам</b>, а между ними считает путь по своим
+        датчикам (AR/PDR: фьюжн компаса и гироскопа, оценка шага по Вайнбергу,
+        отсев магнитных помех, притягивание трека к проходам плана — map-matching).
+        Мобильное приложение + ПК-клиент + локальный сервер.</p>
+        <p class="muted small">TS-ядро (zero-deps) · Node LAN-сервер · Expo RN · Qt6 / C++</p>
+        <p><span class="badge">✅ ядро 80 / 80 · сервер 12 / 12</span> &nbsp; <a href="navigator.html">Подробнее о навигации →</a></p>
       </div>
 
       <div class="card">

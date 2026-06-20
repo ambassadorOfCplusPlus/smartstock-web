@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartStock Навигация — indoor-навигация по складу «доведи до товара» без GPS</title>
+<meta name="description" content="Навигация по складу «доведи до товара»: телефон показывает стрелкой путь к ячейке с нужным товаром. Работает внутри помещения без GPS — по QR-кодам на стеллажах и датчикам телефона. Мобильное приложение + ПК-клиент + локальный сервер. Открытый код (MIT).">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="SmartStock Навигация — indoor-навигация по складу без GPS">
+<meta property="og:description" content="Доведи до товара: телефон ведёт к нужной ячейке по QR-кодам на стеллажах, без GPS. Мобильное приложение + ПК-клиент + локальный сервер. Открытый код (MIT).">
+<meta property="og:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner-navigator.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/screenshots/banner-navigator.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="cloud.html">Облако</a>
+      <a href="messenger.html">Мессенджер</a>
+      <a href="navigator.html">Навигация</a>
+      <a href="opensource.html">Открытый код</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="tech.html">Тех. детали</a>
+      <a href="license.html">Лицензия</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>SmartStock Навигация</h1>
+    <p class="lead">Навигация по складу <b>«доведи до товара»</b>: телефон
+    показывает стрелкой, куда идти к ячейке с нужным товаром. Работает
+    <b>внутри помещения, где GPS бесполезен</b> — вы сканируете <b>QR-коды</b>
+    на стеллажах, а между ними телефон сам считает путь по своим датчикам, как
+    шагомер.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/ambassadorOfCplusPlus/smartstack-opensource/tree/master/warehouse-navigator" target="_blank" rel="noopener">⭐ Исходники на GitHub</a>
+      <a class="btn light" href="contacts.html">Запросить внедрение</a>
+    </div>
+    <p class="small" style="color:#b7b5a9;margin-top:.7rem">
+      Открытый код под лицензией MIT — работу можно проверить, а не принимать на
+      веру. Всего четыре простых понятия: склад, ячейки, товар и навигатор.
+    </p>
+    <div class="badges">
+      <span class="badge">🧭 Без GPS — QR + датчики</span>
+      <span class="badge">📱 Телефон + ПК-клиент</span>
+      <span class="badge">📜 Открытый код (MIT)</span>
+      <span class="badge">✅ Покрыт автотестами</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <figure>
+      <img class="shot-img" src="assets/img/screenshots/banner-navigator.png"
+           alt="SmartStock Навигация — телефон ведёт по складу к ячейке с товаром по QR-якорям, без GPS"
+           style="width:100%;border-radius:12px">
+    </figure>
+  </div>
+</section>
+
+<!-- ── Что это ───────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Что это</h2>
+      <p class="muted">Самостоятельный навигатор по складу: общий LAN-сервер и два
+      клиента. Связан только со складом/ячейками/товаром — не тянет всю ERP.</p>
+    </div>
+    <div class="grid c3">
+      <div class="card"><div class="icon">📱</div><h3>Приложение на телефон</h3><p>Сканирует QR-метку на стеллаже, ведёт к нужной ячейке стрелкой и по плану. Между метками считает путь по датчикам телефона.</p></div>
+      <div class="card"><div class="icon">💻</div><h3>ПК-клиент</h3><p>Программа для рабочего места кладовщика: смотреть план склада, ячейки и маршрут на большом экране.</p></div>
+      <div class="card"><div class="icon">🖧</div><h3>Локальный сервер</h3><p>Лёгкий сервер в сети склада: хранит план, ячейки, товары и точки-якоря. Работает без облака и без интернета.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Как находит без GPS ───────────────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container">
+    <h2>Как находит дорогу без GPS — простыми словами</h2>
+    <div class="steps" style="max-width:740px">
+      <div class="step"><div>На стеллажах и у входов наклеены <b>QR-метки</b> с известным местом. Сканируешь любую — телефон точно знает, где ты стоишь (накопленная ошибка обнуляется).</div></div>
+      <div class="step"><div>Между метками телефон сам считает, куда ты пошёл, <b>по своим датчикам движения</b>: направление — по компасу, шаги — как в шагомере.</div></div>
+      <div class="step"><div>Длину шага программа подбирает <b>по характеру походки</b>, а не берёт одинаковой для всех — поэтому путь точнее у разных людей.</div></div>
+      <div class="step"><div>Металл и стеллажи сбивают компас — программа <b>отсеивает эти помехи</b> и «прижимает» маршрут к реальным проходам плана, чтобы он не шёл сквозь стены.</div></div>
+    </div>
+    <p class="muted small" style="margin-top:1rem">Чем чаще наклеены QR-метки,
+    тем точнее: каждый скан обнуляет накопленную ошибку. План склада берётся из
+    SmartStock — тот же редактор: стеллажи, зоны, проходы.
+    <a href="tech.html">Как это устроено внутри →</a></p>
+  </div>
+</section>
+
+<!-- ── Возможности ───────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2>Возможности</h2></div>
+    <div class="grid c3">
+      <div class="card"><div class="icon">🎯</div><h3>Доведи до товара</h3><p>Ввёл товар или отсканировал штрихкод — навигатор строит маршрут до его ячейки и ведёт стрелкой.</p></div>
+      <div class="card"><div class="icon">🔳</div><h3>QR-якоря</h3><p>Точная привязка к месту по наклеенным меткам. Дёшево разворачивается: распечатал и расклеил.</p></div>
+      <div class="card"><div class="icon">🧮</div><h3>Проверяемые алгоритмы</h3><p>Все расчёты навигации открыты и покрыты автотестами — работу можно проверить, а не принимать на веру. Подробности — на странице «Тех. детали».</p></div>
+      <div class="card"><div class="icon">🗺️</div><h3>По плану склада</h3><p>Маршрут строится по реальному плану из SmartStock — комнаты, стеллажи, зоны-территории, проходы.</p></div>
+      <div class="card"><div class="icon">📶</div><h3>Локально, без интернета</h3><p>Сервер и клиенты работают в одной Wi-Fi-сети склада. Данные не уходят в облако.</p></div>
+      <div class="card"><div class="icon">🧩</div><h3>Минимум сущностей</h3><p>Только склад, ячейки, товар и навигатор — модуль автономен и не тянет за собой всю ERP.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Честно о рамках ───────────────────────────────────────────────────── -->
+<section class="section soft">
+  <div class="container">
+    <h2>Честно о точности</h2>
+    <p class="muted" style="max-width:64ch">Indoor-навигация по датчикам телефона —
+    это оценка, а не сантиметровая точность. Честно обозначим, на что рассчитывать.</p>
+    <div class="grid c2" style="margin-top:1.4rem">
+      <div class="card">
+        <h3>✅ Сильные стороны</h3>
+        <ul class="muted" style="padding-left:1.2rem">
+          <li>Точный сброс позиции на каждом QR-якоре</li>
+          <li>Не нужен GPS, Bluetooth-маяки или дорогое оборудование</li>
+          <li>Map-matching не даёт маршруту «проходить сквозь стены»</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>ⓘ Границы</h3>
+        <ul class="muted" style="padding-left:1.2rem">
+          <li>Между якорями — счисление: ошибка растёт, пока не отсканируешь следующий</li>
+          <li>Точность зависит от датчиков телефона и плотности якорей</li>
+          <li>Нужен актуальный план склада с координатами ячеек</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container center">
+    <h2>Поставить себе</h2>
+    <p class="muted">Ядро, LAN-сервер, мобильный APK и ПК-клиент — на GitHub под
+    MIT. Нужна помощь с развёртыванием на вашем складе (расстановка якорей, план) —
+    напишите, помогу настроить.</p>
+    <p style="margin-top:1.4rem">
+      <a class="btn" href="https://github.com/ambassadorOfCplusPlus/smartstack-opensource/tree/master/warehouse-navigator" target="_blank" rel="noopener">⭐ GitHub</a>
+      <a class="btn light" href="contacts.html" style="margin-left:.6rem">Связаться</a>
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов.<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="price.html">Прайс-лист</a>
+      <a href="sklad.html">Программа для склада</a>
+      <a href="kassa.html">Программа для магазина</a>
+      <a href="marketplace.html">Учёт для маркетплейсов</a>
+      <a href="messenger.html">Мессенджер</a>
+      <a href="navigator.html">Навигация по складу</a>
+      <a href="opensource.html">Открытый код (GitHub)</a>
+      <a href="tech.html">Технические детали</a>
+      <a href="license.html">Лицензионное соглашение</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

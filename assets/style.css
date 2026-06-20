@@ -276,19 +276,23 @@ img.emoji {
 /* ── Лайтбокс: скриншоты открываются в полный размер по клику ───────────────── */
 .shot-img { cursor: zoom-in; transition: transform .15s ease, box-shadow .15s ease; }
 .shot-img:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,.14); }
+/* Лайтбокс всегда в DOM и в layout (не display:none) — иначе переходы не
+   анимируются с первого кадра. Скрыт через opacity+visibility+pointer-events. */
 .lightbox {
-  position: fixed; inset: 0; z-index: 200; display: none;
-  align-items: center; justify-content: center; padding: 4vh 4vw;
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: center; padding: 4vh 4vw;
   background: rgba(15,15,14,.93); cursor: zoom-out;
-  opacity: 0; transition: opacity .18s ease;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .25s ease, visibility .25s ease;
 }
-.lightbox.open { display: flex; opacity: 1; }
+.lightbox.open { opacity: 1; visibility: visible; pointer-events: auto; }
 .lightbox img {
   max-width: 100%; max-height: 92vh; border-radius: 10px; cursor: default;
   box-shadow: 0 24px 70px rgba(0,0,0,.55);
-  transform: scale(.97); transition: transform .18s ease;
+  opacity: 0; transform: scale(.86) translateY(10px);
+  transition: transform .3s cubic-bezier(.2,.85,.25,1), opacity .26s ease;
 }
-.lightbox.open img { transform: scale(1); }
+.lightbox.open img { opacity: 1; transform: scale(1) translateY(0); }
 .lightbox .lb-close {
   position: absolute; top: .8rem; right: 1.3rem; color: #fff; opacity: .85;
   font-size: 2.2rem; line-height: 1; background: none; border: none; cursor: pointer;
@@ -316,4 +320,122 @@ img.emoji {
 }
 @media (max-width: 640px) {
   .grid.c2, .grid.c3, .grid.c4 { grid-template-columns: 1fr; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   Анимации и дизайн-акценты. Принцип: «прогрессивное улучшение» — без JS и при
+   prefers-reduced-motion страница полностью видима и статична, ничего не прячем.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Появление при прокрутке ───────────────────────────────────────────────
+   Прячем только когда JS активен (html.js-reveal добавляет site.js) и движение
+   разрешено — иначе контент остаётся видимым (graceful degradation). */
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s cubic-bezier(.22,.61,.36,1),
+                transform .6s cubic-bezier(.22,.61,.36,1);
+    transition-delay: calc(var(--reveal-i, 0) * 70ms);
+    will-change: opacity, transform;
+  }
+  .js-reveal .reveal.is-visible { opacity: 1; transform: none; }
+}
+
+/* ── Вход hero (на загрузке, без JS) ──────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1     { animation: heroIn .7s        cubic-bezier(.22,.61,.36,1) both; }
+  .hero .lead  { animation: heroIn .7s  .10s   cubic-bezier(.22,.61,.36,1) both; }
+  .hero .cta   { animation: heroIn .7s  .20s   cubic-bezier(.22,.61,.36,1) both; }
+  .hero .badges{ animation: heroIn .7s  .30s   cubic-bezier(.22,.61,.36,1) both; }
+}
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+/* ── Тёплое свечение в hero (дизайн-акцент вместо плоского градиента) ──────── */
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(62% 130% at 88% 0%, rgba(217,119,87,.20), transparent 58%),
+    radial-gradient(50% 120% at 0% 100%, rgba(217,119,87,.08), transparent 60%);
+}
+.hero .container { position: relative; z-index: 1; }
+
+/* ── Карточки: мягкий подъём при наведении ────────────────────────────────── */
+.card {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0,0,0,.13);
+  border-color: #d9d9de;
+}
+.section.dark .card:hover { border-color: #5a594f; box-shadow: 0 18px 44px rgba(0,0,0,.35); }
+
+/* Иконка карточки слегка «оживает» вместе с карточкой */
+.card .icon { transition: transform .22s ease; display: inline-block; }
+.card:hover .icon { transform: scale(1.12) rotate(-4deg); }
+
+/* ── Акцентная черта у заголовков секций ──────────────────────────────────── */
+.section-head h2 { position: relative; padding-bottom: .5rem; }
+.section-head h2::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 46px; height: 3px; border-radius: 3px; background: var(--accent);
+}
+
+/* ── Кнопки: мягкая тень акцента + ощутимый отклик ────────────────────────── */
+.btn { box-shadow: 0 6px 18px rgba(217,119,87,.26); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn.light, .btn.ghost { box-shadow: none; }
+.btn.ghost:hover { box-shadow: 0 6px 18px rgba(217,119,87,.26); }
+
+/* ── Подчёркивание пунктов меню (десктоп) ─────────────────────────────────── */
+.nav a:not(.btn) { position: relative; }
+.nav a:not(.btn)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+  background: var(--accent); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left; transition: transform .2s ease;
+}
+.nav a:not(.btn):hover::after, .nav a.active::after { transform: scaleX(1); }
+
+/* ── Бейджи: лёгкий отклик ────────────────────────────────────────────────── */
+.badge { transition: color .2s ease, border-color .2s ease, transform .2s ease; }
+.badge:hover { color: var(--dark-ink); border-color: var(--accent); transform: translateY(-1px); }
+
+/* ── Строки таблиц: подсветка при наведении ───────────────────────────────── */
+table.nice tr:hover td { background: rgba(217,119,87,.06); }
+
+/* ── Шаги: номер слегка увеличивается при наведении на пункт ───────────────── */
+.step { transition: transform .2s ease; }
+.step::before { transition: transform .2s ease, box-shadow .2s ease; }
+.step:hover::before { transform: scale(1.08); box-shadow: 0 6px 16px rgba(217,119,87,.35); }
+
+/* ── FAQ: плавный «+/–» ───────────────────────────────────────────────────── */
+details.faq summary::after { transition: transform .2s ease; }
+details.faq[open] summary::after { transform: rotate(180deg); }
+
+/* В мобильном меню (бургер) подчёркивание-линию убираем — там вертикальный список */
+@media (max-width: 1280px) {
+  .nav a:not(.btn)::after { display: none; }
+}
+
+/* ── Переходы между страницами (View Transitions API) ──────────────────────
+   Браузер сам делает плавный кросс-фейд между страницами при переходе по
+   ссылке. Без JS и без «мигания». Где API не поддержан (Firefox/старые) —
+   переход мгновенный, сайт работает как обычно (прогрессивное улучшение). */
+@view-transition { navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .32s; }
+
+/* Уважение к настройке «меньше движения»: гасим трансформы, появление и переходы */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover, .card:hover .icon, .step:hover::before, .badge:hover,
+  .btn:hover, .shot-img:hover { transform: none; }
+  /* Лайтбокс — без зум-анимации, просто показать/скрыть */
+  .lightbox img { opacity: 1; transform: none; transition: opacity .15s ease; }
+  .lightbox:not(.open) img { opacity: 0; }
+  /* Кросс-фейд страниц отключаем */
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) { animation: none !important; }
 }
