@@ -191,8 +191,26 @@
       <div class="finding"><b>qwen3-4b — 0/25 + таймауты</b> (до 184 с/ответ). 4B-модель, которая на лёгком наборе не берёт вообще ничего → удалена.</div>
       <div class="finding"><b>phi-4-mini — token-salad</b> на нашем движке (бессвязные токены, 8 ГБ ОЗУ). «Data-quality» звезда лидербордов — но несовместима с движком.</div>
       <div class="finding"><b>Две 8B проиграли 2B</b> уже на 25 вопросах (llama3.1-8b и hermes3-8b — по 9/25). Лишние параметры не дали даже базовой надёжности.</div>
-      <div class="finding"><b>Победитель отбора — Gemma 4 E2B (21/25)</b>, она и стала дефолтом. xLAM / SmolLM — топы своих бенчей — на моём стенде оказались дико медленными.</div>
+      <div class="finding"><b>Победитель отбора — Gemma 4 E2B (21/25)</b>, она и стала дефолтом.</div>
     </div>
+  </section>
+
+  <!-- Звёзды, которые не взлетели -->
+  <section class="reveal">
+    <h2>⭐ Звёзды лидербордов, которые не взлетели</h2>
+    <p class="sub">Лучшая иллюстрация тезиса «не верьте публичным бенчам». Эти модели «по бумаге» идеально подходили под задачу — и провалились на моём стенде.</p>
+    <table class="rtable">
+      <thead><tr><th>Модель</th><th>Чем «звезда»</th><th>Что вышло у меня</th></tr></thead>
+      <tbody>
+        <tr><td>Phi-4-mini <span class="muted">(Microsoft)</span></td><td>«Textbooks»: бьёт модели ×5 крупнее на бенчах</td><td>Token-salad на движке + 8 ГБ ОЗУ → снята</td></tr>
+        <tr><td>xLAM-2-3B <span class="muted">(Salesforce)</span></td><td>Top-1 Berkeley Function-Calling, «&gt; GPT-4o»</td><td>Дико медленная; FC-лидерство ≠ рассуждение</td></tr>
+        <tr><td>Arch-Function-3B <span class="muted">(Katanemo)</span></td><td>SOTA function-calling</td><td>Не добежала — слишком медленная</td></tr>
+        <tr><td>SmolLM3-3B <span class="muted">(HuggingFace)</span></td><td>Любимец «открытости», честный 128K</td><td>Те же таймауты на клиентском GPU</td></tr>
+        <tr><td>qwen3-4b <span class="muted">(Alibaba)</span></td><td>Крупнее 2B → «должна быть умнее»</td><td>0/25 + таймауты до 184 с → удалена</td></tr>
+        <tr><td>Llama 3.1 8B / Hermes 3 8B</td><td>Вдвое больше 2B</td><td>По 9/25 — проиграли 2B-Gemma</td></tr>
+      </tbody>
+    </table>
+    <div class="rule" style="margin-top:1.2rem">Все они хороши на СВОИХ бенчах — и почти все провалились на МОИХ. Публичный лидерборд меряет не вашу задачу и не ваше железо (4 ГБ VRAM, русский, ваша схема tool-calling). <b>Единственный надёжный тест — прогнать на своих данных, на своём CPU/GPU.</b></div>
   </section>
 
   <!-- Chart 1: ladder -->
