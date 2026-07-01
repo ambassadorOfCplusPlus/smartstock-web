@@ -219,7 +219,7 @@
     <h2>Лестница моделей: одна обвязка, разное рассуждение</h2>
     <p class="sub">Итоговый балл на жёстком наборе из 1000 вопросов. Все модели получили РОВНО тот же слой инструментов — вся разница в качестве рассуждения. Наведите на столбец.</p>
     <div class="chartwrap"><div class="chartbox"><canvas id="chLadder"></canvas></div>
-      <p class="cap">🟣 фронтир (US, референс) · 🔵 РФ-облако (152-ФЗ) · 🟠 локалка на клиентском ПК (оффлайн, 0 ₽)</p></div>
+      <p class="cap">🟣 фронтир (US, референс) · 🔵 РФ-облако Yandex · 🟠 локалка на клиентском ПК (оффлайн, 0 ₽). Флаг 🇷🇺 = хостинг в РФ, не происхождение (Qwen — Alibaba, DeepSeek — китайские, крутятся на Yandex Cloud).</p></div>
   </section>
 
   <!-- Chart 2: tiers -->
@@ -290,7 +290,7 @@
       <div class="finding"><b>🧠 «Мозг»</b> — слой инструментов + план-протокол + агент-цикл. Не знает, <i>кто</i> генерирует текст. Один и тот же во всех редакциях (десктоп / сервер / облако).</div>
       <div class="finding"><b>⚙️ «Движок»</b> — сменный генератор. Локальная llama.cpp <b>или</b> облачный API — один интерфейс. Подключить облако = поменять движок, не трогая инструменты.</div>
       <div class="finding"><b>Локалка — оффлайн-фолбэк</b> (Gemma 4 E2B): всегда, без интернета и ключей, 0 ₽. Быстрые ответы на прямые справки.</div>
-      <div class="finding"><b>Облако — «турбо» по кнопке:</b> GigaChat / YandexGPT (хостинг РФ, 152-ФЗ, без VPN) для редкой тяжёлой аналитики. Дешёвая Alice — 90.5 балла за 38 ₽.</div>
+      <div class="finding"><b>Облако — «турбо» по кнопке:</b> <b>YandexGPT</b> (измерено) или <b>GigaChat</b> (аналог по инфраструктуре — его я не гонял, честно) — российский хостинг, без VPN. Дешёвая Alice — 90.5 балла за 38 ₽.</div>
     </div>
     <p style="margin-top:1rem">Именно этот «мозг» (план-протокол + детерминированный исполнитель + защита от конфабуляции) выложен <a href="https://github.com/ambassadorOfCplusPlus/smartstack-opensource">открытым MIT-модулем <b>ai-toolcalling</b></a> — берите к своему ассистенту.</p>
   </section>
@@ -454,7 +454,7 @@
         datasets: [
           { label: 'Sonnet (фронтир)', data: [100, 93, 95, 97], backgroundColor: PUR, borderRadius: 4 },
           { label: 'Haiku (дешёвый Claude)', data: [100, 94, 68, 49], backgroundColor: BLU, borderRadius: 4 },
-          { label: 'Alice 🇷🇺 (дешёвое облако)', data: [100, 65, 75, 49], backgroundColor: GREY, borderRadius: 4 },
+          { label: 'Alice 🇷🇺 (дешёвое РФ-облако)', data: [100, 65, 75, 49], backgroundColor: '#8fb0cf', borderRadius: 4 },
           { label: 'Gemma e2b 💻 (локалка)', data: [98, 41, 46, 34], backgroundColor: COR, borderRadius: 4 }
         ]
       },
