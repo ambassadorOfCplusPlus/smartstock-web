@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как я выбирал LLM для ИИ-ассистента — исследование на 1000 вопросов | SmartStock</title>
+<meta name="description" content="21 модель, 23 500 ответов, 51 час счёта на офисном ПК: как я выбирал локальную нейросеть для ИИ-чата в складской ERP. Бенчмарк с ловушками, интерактивные графики, честные выводы.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="SmartStock">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="23 500 ответов, 51 час, 21 модель: как я выбирал LLM для десктопного ИИ-ассистента">
+<meta property="og:description" content="Бенчмарк локальных и облачных нейросетей на 1000 вопросов с ловушками — на реальном офисном железе. Интерактивные графики и честные выводы.">
+<meta property="og:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/research-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ambassadorofcplusplus.github.io/smartstock-web/assets/img/research-cover.png">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+<style>
+  /* ── страница-исследование: локальные стили ── */
+  .rh { background: linear-gradient(160deg, #262624 0%, #1d1d1c 100%); }
+  .rh h1 { font-size: clamp(1.7rem, 4.2vw, 3rem); line-height: 1.12; margin: 0 0 1rem; }
+  .rh .accent { color: var(--accent); }
+  .rstats { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin: 2rem 0 .5rem; }
+  .rstat { background: rgba(255,255,255,.05); border: 1px solid #45453f; border-radius: var(--radius); padding: 1rem 1.1rem; }
+  .rstat b { display: block; font-size: clamp(1.5rem,3.4vw,2.3rem); font-weight: 800; color: #f5f4ef; line-height: 1; }
+  .rstat span { color: #b7b5a9; font-size: .82rem; }
+  @media(max-width:640px){ .rstats{ grid-template-columns: repeat(2,1fr); } }
+
+  .research section { padding: 3.2rem 0; border-bottom: 1px solid var(--line); }
+  .research h2 { font-size: clamp(1.35rem,3vw,2rem); margin: 0 0 .4rem; }
+  .research .sub { color: var(--muted); max-width: 720px; margin: 0 0 1.6rem; }
+  .research p { max-width: 760px; line-height: 1.65; }
+
+  .findings { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+  @media(max-width:720px){ .findings{ grid-template-columns: 1fr; } }
+  .finding { background: var(--bg-soft,#faf9f6); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.1rem 1.2rem; }
+  .finding b { color: var(--ink); }
+  .finding .big { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+
+  .chartwrap { background:#fff; border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.2rem 1.2rem .6rem; margin-top:.6rem; }
+  .chartwrap .cap { color: var(--muted); font-size: .85rem; margin: .2rem 0 1rem; }
+  .chartbox { position: relative; height: 340px; }
+  @media(max-width:640px){ .chartbox{ height: 300px; } }
+
+  .liftcard { display:flex; gap:1.4rem; flex-wrap:wrap; align-items:center; background:#262624; color:#f5f4ef; border-radius:var(--radius); padding:1.4rem 1.6rem; margin-top:1rem; }
+  .liftcard .num { font-size: clamp(2rem,6vw,3.4rem); font-weight:800; }
+  .liftcard .arrow { color: var(--accent); font-size:2rem; }
+  .liftcard .plus { color:#7ee787; font-weight:800; }
+
+  .rtable { width:100%; border-collapse:collapse; margin-top:1rem; font-size:.94rem; }
+  .rtable th,.rtable td { padding:.6rem .7rem; border-bottom:1px solid var(--line); text-align:left; }
+  .rtable th { color: var(--muted); font-weight:600; }
+  .rtable tr td:first-child { font-weight:600; }
+
+  .verdict { background:#262624; color:#e9e7e0; border-radius:var(--radius); padding: 1.8rem 1.8rem; }
+  .verdict h2 { color:#fff; }
+  .verdict ol { padding-left: 1.2rem; }
+  .verdict li { margin:.7rem 0; line-height:1.6; }
+  .verdict .k { color: var(--accent); font-weight:700; }
+  .rule { border-left:4px solid var(--accent); background:rgba(217,119,87,.08); padding:1rem 1.2rem; border-radius:8px; font-size:1.05rem; }
+
+  /* появление по скроллу */
+  .reveal { opacity:0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark">📦</span> SmartStock</a>
+    <button class="burger" aria-label="Меню">☰</button>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="server.html">Сервер</a>
+      <a href="cloud.html">Облако</a>
+      <a href="opensource.html">Открытый код</a>
+      <a href="research.html" class="active">Исследование ИИ</a>
+      <a href="price.html">Прайс</a>
+      <a href="buy.html">Оплата</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакты</a>
+      <a class="btn" href="buy.html">Купить</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero rh">
+  <div class="container">
+    <h1>23 500 ответов, 51 час, 21 модель:<br><span class="accent">как я выбирал LLM</span> для десктопного ИИ-ассистента</h1>
+    <p class="lead">В SmartStock встроен ИИ-чат по складской базе, работающий <b>оффлайн</b> — без облака и подписок (152-ФЗ). Чтобы выбрать нейросеть, я прогнал 21 модель на 1000 вопросов с ловушками — на реальном офисном ПК, а не на серверных A100. Вот что вышло.</p>
+    <div class="rstats">
+      <div class="rstat"><b data-count="21">0</b><span>моделей — локальных и облачных</span></div>
+      <div class="rstat"><b data-count="23500">0</b><span>ответов сгенерировано и оценено</span></div>
+      <div class="rstat"><b data-count="51" data-suffix=" ч">0</b><span>чистого счёта на i3 + RX 6500 XT</span></div>
+      <div class="rstat"><b data-count="1000">0</b><span>вопросов в 4 тирах сложности</span></div>
+    </div>
+    <div class="cta">
+      <a class="btn" href="files/SmartStock-2.6.0-Beta-Setup.exe" download>🎁 Попробовать SmartStock бесплатно</a>
+      <a class="btn light" href="opensource.html">Открытый код tool-calling</a>
+    </div>
+  </div>
+</section>
+
+<main class="research">
+<div class="container">
+
+  <!-- TL;DR -->
+  <section class="reveal">
+    <h2>Коротко</h2>
+    <p class="sub">Пять выводов, ради которых стоило гонять бенч неделями.</p>
+    <div class="findings">
+      <div class="finding"><b>Потолок задаёт модель, а не инструменты.</b> На одном и том же наборе функций: фронтир <b>95–97</b> → дешёвое РФ-облако <b>57–64</b> → локалка <b>42–44</b>. Доступ к данным одинаков — расходится только рассуждение.</div>
+      <div class="finding"><b>Размер — не серебряная пуля.</b> На сложных вопросах 4B <span class="big">≈</span> 2B (44 против 42). А удачная 2B (Gemma) <b>вдвое</b> обходит неудачную 3B (Llama). Решает архитектура и датасет, не число параметров.</div>
+      <div class="finding"><b>Цена ≠ качество.</b> Alice Flash — <b>90.5 балла за 38 ₽</b>. Флагман YandexGPT Pro — <b>~89 за ~1500 ₽</b>: ниже дешёвых, но в 10–40× дороже.</div>
+      <div class="finding"><b>Инструмент помогает раз.</b> Четыре волны новых функций дали ноль. Но там, где модель <i>физически</i> не достаёт данные, один инструмент поднял локалку с <span class="big">8 → 58 %</span>.</div>
+    </div>
+  </section>
+
+  <!-- Chart 1: ladder -->
+  <section class="reveal">
+    <h2>Лестница моделей: одна обвязка, разное рассуждение</h2>
+    <p class="sub">Итоговый балл на жёстком наборе из 1000 вопросов. Все модели получили РОВНО тот же слой инструментов — вся разница в качестве рассуждения. Наведите на столбец.</p>
+    <div class="chartwrap"><div class="chartbox"><canvas id="chLadder"></canvas></div>
+      <p class="cap">🟣 фронтир (US, референс) · 🔵 РФ-облако (152-ФЗ) · 🟠 локалка на клиентском ПК (оффлайн, 0 ₽)</p></div>
+  </section>
+
+  <!-- Chart 2: tiers -->
+  <section class="reveal">
+    <h2>Сложный тир развёл всех</h2>
+    <p class="sub">На простых справках модели неотличимы (~100 %). Различие вылезает только на «комплексных» — многошаговых вопросах (взвешенные средние, вложенные условия). Именно тут фронтир (97) отрывается от дешёвого облака (49) и локалки (34).</p>
+    <div class="chartwrap"><div class="chartbox"><canvas id="chTiers"></canvas></div>
+      <p class="cap">Балл по тирам сложности. Обратите внимание на правую группу «Комплексные» — там всё и решается.</p></div>
+  </section>
+
+  <!-- Chart 3: price -->
+  <section class="reveal">
+    <h2>Цена не покупает качество</h2>
+    <p class="sub">Каждая точка — облачная модель: по горизонтали цена за 100 вопросов, по вертикали точность. Хорошая покупка — левее и выше. Флагман Pro торчит справа за 1500 ₽ на той же высоте, что Alice за 38 ₽.</p>
+    <div class="chartwrap"><div class="chartbox"><canvas id="chPrice"></canvas></div>
+      <p class="cap">Ось цены — логарифмическая. Вывод для интеграции: берём дешёвую быструю модель, флагман не окупается.</p></div>
+  </section>
+
+  <!-- Lift story -->
+  <section class="reveal">
+    <h2>Нашёл дыру — закрыл кодом</h2>
+    <p>Единственное за всё исследование место, где новый инструмент реально поднял слабую локалку. Целые блоки вопросов — «самый дорогой / средневзвешенная цена <b>в категории X</b>» — модели валили: у слоя инструментов не было примитива «агрегат внутри категории», и модель срывалась в поиск товара по имени категории → «ничего не найдено».</p>
+    <p>Я добавил один инструмент — <code>category_stats</code>, отдающий готовые числа внутри категории. И замерил ту же модель до и после:</p>
+    <div class="liftcard">
+      <div><span class="num">8.2 %</span><br><span style="color:#b7b5a9">без инструмента</span></div>
+      <div class="arrow">→</div>
+      <div><span class="num">57.6 %</span><br><span style="color:#b7b5a9">с <code>category_stats</code></span></div>
+      <div style="margin-left:auto"><span class="num plus">+49</span><br><span style="color:#b7b5a9">пунктов у 2B-локалки</span></div>
+    </div>
+    <div class="chartwrap"><div class="chartbox"><canvas id="chLift"></canvas></div>
+      <p class="cap">Мораль: инструмент помогает там, где модель не может ДОСТАТЬ данные. Где может достать, но не тянет посчитать — нужна модель поумнее.</p></div>
+  </section>
+
+  <!-- Hardware -->
+  <section class="reveal">
+    <h2>На чём это считалось</h2>
+    <p class="sub">Ключевая честность бенча: он гонялся на железе, которое реально стоит у клиента, — а не на серверных монстрах за $15–30 тыс.</p>
+    <table class="rtable">
+      <thead><tr><th>Железо</th><th>Время на 23 500 ответов</th><th>Цена</th><th>Доступность</th></tr></thead>
+      <tbody>
+        <tr><td>Мой стенд (RX 6500 XT, i3)</td><td><b>51 час</b></td><td>~$200</td><td>у каждого клиента</td></tr>
+        <tr><td>A100 80GB</td><td>≈5–7 часов</td><td>$15 000+</td><td>у облачных гигантов</td></tr>
+        <tr><td>H100</td><td>≈3–4 часа</td><td>$30 000+</td><td>у топ-лабораторий</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Verdict -->
+  <section class="reveal">
+    <div class="verdict">
+      <h2>Вердикт: какая нейросеть нужна приложению</h2>
+      <p style="color:#c9c6bd">Не самая большая и не топ лидербордов. Это модель, у которой:</p>
+      <ol>
+        <li><span class="k">Достаточно инструментов для своего размера — но не больше.</span> Избыток малую модель путает, а не усиливает.</li>
+        <li><span class="k">Проверена на ТВОИХ задачах, а не на публичных бенчах.</span> Половина «подходящих по бумаге» семейств провалилась на моём стенде — token-salad'ом, 8 ГБ ОЗУ, таймаутами.</li>
+        <li><span class="k">Удачные семейство и размер — без гонки за размером.</span> 4B не оторвался от 2B; Gemma при 2B рвала Llama 3B вдвое.</li>
+      </ol>
+      <p style="color:#c9c6bd">В продукте остались <b>Gemma 4 E2B / E4B</b>: на реальных вопросах клиента («сколько на остатке», «что заканчивается») локалка даёт <b>90 %+</b>. Тяжёлая аналитика — не её задача, для неё есть облако-«турбо» по кнопке.</p>
+      <div class="rule">Главное — против универсальности. Под каждую задачу своя модель: быстрая 2B для справок оффлайн, облако для редкой аналитики. <b>Выбирай под задачу, а не «самое мощное».</b></div>
+    </div>
+  </section>
+
+  <!-- CTA / links -->
+  <section class="reveal" style="border-bottom:none">
+    <h2>Пощупать самому</h2>
+    <p class="sub">ИИ-ассистент — часть SmartStock: складской учёт и мини-ERP с разовой оплатой, без облака и подписок.</p>
+    <div class="cta" style="display:flex;gap:.9rem;flex-wrap:wrap">
+      <a class="btn" href="files/SmartStock-2.6.0-Beta-Setup.exe" download>🎁 Скачать бету (полный функционал)</a>
+      <a class="btn ghost" href="https://github.com/ambassadorOfCplusPlus/smartstack-opensource">Открытый код: ai-toolcalling</a>
+      <a class="btn ghost" href="desktop.html">Что ещё умеет программа</a>
+    </div>
+    <p class="muted" style="margin-top:1.2rem;font-size:.9rem">Обобщённый каркас tool-calling (план-протокол + детерминированный исполнитель + защита от конфабуляции) выложен отдельным MIT-модулем — берите и подключайте к своему ассистенту.</p>
+  </section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cols">
+    <div>
+      <b>SmartStock</b> — разработчик: Ратмир Кунтуганов.<br>
+      © <span data-year></span>. Все права защищены.
+    </div>
+    <div class="foot-nav">
+      <a href="https://t.me/C_plus_plus_is_good"><b>✈️ Telegram:</b> @C_plus_plus_is_good</a>
+      <a href="https://wa.me/79285879774"><b>💬 WhatsApp:</b> +7 928 587-97-74</a>
+      <a href="mailto:kuntuganov_ratmir@mail.ru">📧 kuntuganov_ratmir@mail.ru</a>
+    </div>
+    <nav class="foot-nav">
+      <a href="research.html">Исследование ИИ</a>
+      <a href="opensource.html">Открытый код</a>
+      <a href="desktop.html">Десктоп</a>
+      <a href="price.html">Прайс-лист</a>
+      <a href="tech.html">Технические детали</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  // ── появление по скроллу ──
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  // ── счётчики в hero ──
+  function animCount(el) {
+    var target = +el.dataset.count, suf = el.dataset.suffix || '', t0 = null, dur = 1300;
+    function step(ts) {
+      if (!t0) t0 = ts; var p = Math.min((ts - t0) / dur, 1);
+      var val = Math.floor((1 - Math.pow(1 - p, 3)) * target);
+      el.textContent = val.toLocaleString('ru-RU') + suf;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var seen = false;
+  var hio = new IntersectionObserver(function (es) {
+    if (es[0].isIntersecting && !seen) { seen = true; document.querySelectorAll('[data-count]').forEach(animCount); }
+  }, { threshold: .3 });
+  var hs = document.querySelector('.rstats'); if (hs) hio.observe(hs);
+
+  // ── графики (после загрузки Chart.js) ──
+  function initCharts() {
+    if (typeof Chart === 'undefined') { return setTimeout(initCharts, 60); }
+    Chart.defaults.font.family = "Inter, 'Segoe UI', system-ui, sans-serif";
+    Chart.defaults.color = '#6e6e73';
+    var COR = '#d97757', PUR = '#6741d9', BLU = '#5b7aa8', GREY = '#9aa3ad', GREEN = '#2e9e5b';
+    var mk = function (id) { var c = document.getElementById(id); return c ? c.getContext('2d') : null; };
+
+    // 1. Лестница (ИТОГО N=1000)
+    if (mk('chLadder')) new Chart(mk('chLadder'), {
+      type: 'bar',
+      data: {
+        labels: ['Sonnet', 'Opus', 'Haiku', 'Alice 🇷🇺', 'DeepSeek 🇷🇺', 'Gemma e4b 💻', 'Gemma e2b 💻'],
+        datasets: [{
+          label: 'Балл /100 (N=1000)',
+          data: [96.2, 95, 64, 61.6, 57.2, 44, 42],
+          backgroundColor: [PUR, PUR, BLU, BLU, BLU, COR, COR],
+          borderRadius: 6
+        }]
+      },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.parsed.x + ' балла'; } } } },
+        scales: { x: { min: 0, max: 100, grid: { color: '#eee' }, title: { display: true, text: 'балл /100' } }, y: { grid: { display: false } } }
+      }
+    });
+
+    // 2. Тиры
+    if (mk('chTiers')) new Chart(mk('chTiers'), {
+      type: 'bar',
+      data: {
+        labels: ['Простые', 'Трудные', 'Ловушки', 'Комплексные'],
+        datasets: [
+          { label: 'Sonnet (фронтир)', data: [100, 93, 95, 97], backgroundColor: PUR, borderRadius: 4 },
+          { label: 'Haiku (дешёвый Claude)', data: [100, 94, 68, 49], backgroundColor: BLU, borderRadius: 4 },
+          { label: 'Alice 🇷🇺 (дешёвое облако)', data: [100, 65, 75, 49], backgroundColor: GREY, borderRadius: 4 },
+          { label: 'Gemma e2b 💻 (локалка)', data: [98, 41, 46, 34], backgroundColor: COR, borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom' } },
+        scales: { y: { min: 0, max: 100, grid: { color: '#eee' }, title: { display: true, text: 'балл, %' } }, x: { grid: { display: false } } }
+      }
+    });
+
+    // 3. Цена vs качество (scatter, лог-ось)
+    if (mk('chPrice')) new Chart(mk('chPrice'), {
+      type: 'scatter',
+      data: {
+        datasets: [
+          { label: 'Alice 🟢 (лучшая покупка)', data: [{ x: 38, y: 90.5 }], backgroundColor: GREEN, pointRadius: 9, pointHoverRadius: 12 },
+          { label: 'Qwen3.6-35B', data: [{ x: 68, y: 90.5 }], backgroundColor: BLU, pointRadius: 7 },
+          { label: 'GPT-OSS 20B', data: [{ x: 55, y: 84 }], backgroundColor: GREY, pointRadius: 7 },
+          { label: 'DeepSeek', data: [{ x: 133, y: 90 }], backgroundColor: BLU, pointRadius: 7 },
+          { label: 'YandexGPT Lite', data: [{ x: 160, y: 88.5 }], backgroundColor: BLU, pointRadius: 7 },
+          { label: 'YandexGPT Pro 💸 (не окупается)', data: [{ x: 1500, y: 89 }], backgroundColor: COR, pointRadius: 9, pointHoverRadius: 12 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: function (c) { return c.dataset.label + ': ' + c.parsed.y + ' балла за ' + c.parsed.x + ' ₽'; } } } },
+        scales: {
+          x: { type: 'logarithmic', title: { display: true, text: 'цена за 100 вопросов, ₽ (лог)' }, grid: { color: '#eee' } },
+          y: { min: 80, max: 95, title: { display: true, text: 'балл /100' }, grid: { color: '#eee' } }
+        }
+      }
+    });
+
+    // 4. Лифт до/после
+    if (mk('chLift')) new Chart(mk('chLift'), {
+      type: 'bar',
+      data: {
+        labels: ['Все 92 категорийных', 'Ловушки-экстремумы', 'Комплексные-взвешенные'],
+        datasets: [
+          { label: 'без инструмента', data: [8.2, 8, 8], backgroundColor: GREY, borderRadius: 4 },
+          { label: 'с category_stats', data: [57.6, 68, 37], backgroundColor: COR, borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom' } },
+        scales: { y: { min: 0, max: 100, grid: { color: '#eee' }, title: { display: true, text: 'верных, %' } }, x: { grid: { display: false } } }
+      }
+    });
+  }
+  initCharts();
+})();
+</script>
+</body>
+</html>
